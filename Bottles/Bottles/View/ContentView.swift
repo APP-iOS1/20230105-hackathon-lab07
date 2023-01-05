@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State var isLoading: Bool = true
     @State private var selection: Int = 1
+    @EnvironmentObject var shopInfoStore: ShopInfoStore
+//    @EnvironmentObject var itemInfoStore: ItemInfoStore
     
     var body: some View {
         TabView(selection: $selection) {
@@ -29,15 +31,21 @@ struct ContentView: View {
                 Image(systemName: "person")
             }.tag(5)
         }
-//        .onAppear {
-//            UITabBar.appearance().backgroundColor = .black
-//        }
+        .task{
+            await shopInfoStore.requestShopInfos()
+            
+        }
+        //        .onAppear {
+        //            UITabBar.appearance().backgroundColor = .black
+        //        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ShopInfoStore()).environmentObject(ItemInfoStore())
+            
     }
 }
 
@@ -48,7 +56,7 @@ extension ContentView {
         ZStack(alignment: .center) {
             
             LinearGradient(gradient: Gradient(colors: [Color("PrimaryColor"), Color("SubPrimaryColor")]),
-                            startPoint: .top, endPoint: .bottom)
+                           startPoint: .top, endPoint: .bottom)
             .edgesIgnoringSafeArea(.all)
             
             Image("LaunchScreenImage")
