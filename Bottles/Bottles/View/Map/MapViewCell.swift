@@ -30,11 +30,11 @@ struct MapViewCell: View {
             operationTime: "",
             iconContent: "바틀샵 Middle Bottle입니다. 열심히 고른 국내/해외 맥주와 와인을 판매합니다.")
     ]
-    var shopInfo: ShopInfo
+//    var shopInfo: ShopInfo
     var body: some View {
         VStack{
             RoundedRectangle(cornerRadius: 10)
-                .frame(width: 330, height: 120)
+                .frame(height: 150)
                 .foregroundColor(.white)
                 .shadow(color: Color("BottleShopDetailBGShadowColor"), radius: 10, x: 0, y: 4)
 //                .blur(radius: 3, opaque: false)
@@ -44,16 +44,17 @@ struct MapViewCell: View {
                             image
                                 .resizable()
                                 .cornerRadius(10)
+                                
+                                .frame(width: 160, height: 150)
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 120, height: 120)
                         } placeholder: {
                             Rectangle()
-                                .frame(width: 100, height: 100)
+                                .frame(width: 160, height: 150)
                                 .foregroundColor(.white)
                         }
                         
                         VStack(alignment: .leading){
-                            Text(shopInfo.shopName)
+                            Text("신미지바보")
                                 .font(.headline)
                                 
                                 .multilineTextAlignment(.leading)
@@ -92,8 +93,8 @@ struct MapViewCell: View {
     }
 }
 
-//struct MapViewCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MapViewCell(, shopInfo: <#ShopInfo#>)
-//    }
-//}
+struct MapViewCell_Previews: PreviewProvider {
+    static var previews: some View {
+        MapViewCell()
+    }
+}

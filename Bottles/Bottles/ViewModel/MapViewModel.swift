@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.559781, longitude: 127.076192), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
     
     var locationManager: CLLocationManager?
     

@@ -46,17 +46,16 @@ struct BottleShopDetailView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                
                 VStack(spacing: 20) {
                     AsyncImage(url: URL(string: "https://ldb-phinf.pstatic.net/20210410_158/16180579695185cNKa_JPEG/mJAiVsSp95nvonvlDMLH71Uq.jpeg.jpg")) { image in
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 200)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 400)
                     } placeholder: {
                         ProgressView()
                     }
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 30)
                     
                     VStack(alignment: .leading, spacing: 10) {
                         Text("미들보틀")
@@ -125,7 +124,6 @@ struct BottleShopDetailView: View {
                                 .font(.headline)
                             Spacer()
                         }
-                        
                         .background(.white)
                         .background(
                             Color.gray
@@ -164,7 +162,7 @@ struct BottleShopDetailView: View {
             }
             
         }
-        .edgesIgnoringSafeArea(.top)
+//        .edgesIgnoringSafeArea(.top)
     }
 }
 

@@ -63,6 +63,7 @@ struct LikeBottleView: View {
                                     BottleDetailView()
                                 } label: {
                                     LikeBottleCell()
+
                                 }
                             }
                         })
