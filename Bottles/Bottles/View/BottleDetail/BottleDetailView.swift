@@ -24,16 +24,16 @@ struct BottleDetailView: View {
     ]
     
     @State var isSelected: Bool = true
+    var bottle: ItemInfo
     
     var body: some View {
         ScrollView {
             VStack {
-                ForEach(itemInfo1) { item in
                     VStack {
                         // 상품 이미지
                         ZStack {
                             AsyncImage(
-                                url: URL(string: String(item.itemImage)),
+                                url: URL(string: String(bottle.itemImage)),
                                 content: { image in
                                     image
                                         .resizable()
@@ -63,20 +63,19 @@ struct BottleDetailView: View {
                         // 상품 이름, 가격, 정보
                         VStack(alignment: .leading, spacing: 20) {
                             HStack {
-                                Text(item.itemName)
+                                Text(bottle.itemName)
                                     .font(.system(size: 25))
                                 
                                 Spacer()
                                 
-                                Text("₩ \(item.itemPrice)")
+                                Text("₩ \(bottle.itemPrice)")
                                     .font(.system(size: 20))
                             }
                             .bold()
                             
-                            Text(item.itemDescription)
+                            Text(bottle.itemVarities)
                         }
                     }
-                }
                 
                 Divider()
                     .padding(.top, 10)
@@ -166,6 +165,6 @@ struct BottleDetailView: View {
 
 struct BottleDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BottleDetailView()
+        BottleDetailView(bottle: ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: "", itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemDegree: ""))
     }
 }
