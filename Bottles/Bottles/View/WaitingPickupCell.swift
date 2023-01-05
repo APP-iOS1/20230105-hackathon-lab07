@@ -15,6 +15,7 @@ struct WaitingPickupCell: View {
                 .foregroundColor(.white)
                 .shadow(color: .gray, radius: 3, y: 3)
             VStack{
+                // MARK: - Bottle 이미지
                 AsyncImage(url: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLsl0hsNIXjL0ZmE_BfBtrftwt56--mFxJVQ&usqp=CAU")) { image in
                     image
                         .resizable()
@@ -26,6 +27,7 @@ struct WaitingPickupCell: View {
                     RoundedRectangle(cornerRadius: 10)
                         .frame(width: 340, height: 160)
                 }
+                // MARK: - Bottle 정보
                 VStack{
                     HStack {
                         Text("Middle Bottle")

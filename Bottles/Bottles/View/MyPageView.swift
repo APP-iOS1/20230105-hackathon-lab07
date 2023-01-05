@@ -29,8 +29,7 @@ struct MyPageView: View {
             .padding(20)
             
             
-            // 픽업을 기다리고 있어요
-            // VStack alignment .leading이 안먹음
+            // MARK: - 픽업을 기다리고 있어요
             
             VStack(alignment: .leading) {
                 Text("픽업을 기다리고 있어요!")
@@ -53,7 +52,7 @@ struct MyPageView: View {
             .padding(.horizontal, 20)
             .padding(.bottom, 20)
             
-            // 내가 픽업했던 보틀
+            // MARK: - 내가 픽업했던 보틀
             VStack(alignment:.leading){
                 Text("내가 픽업했던 보틀")
                     .font(.title2)
