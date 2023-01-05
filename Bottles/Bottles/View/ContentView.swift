@@ -1,4 +1,3 @@
-//
 //  ContentView.swift
 //  Bottles
 //
@@ -10,9 +9,10 @@ import SwiftUI
 struct ContentView: View {
     @State var isLoading: Bool = true
     @State private var selection: Int = 1
+
     //@EnvironmentObject userInfoStore: UserInfoStore
     @EnvironmentObject var shopInfoStore: ShopInfoStore
-    
+
     var body: some View {
         TabView(selection: $selection) {
             MapView().tabItem {
@@ -33,7 +33,7 @@ struct ContentView: View {
         }.task{
             await shopInfoStore.requestShopInfos()
         }
-        
+
 //        .onAppear {
 //            UITabBar.appearance().backgroundColor = .black
 //        }
