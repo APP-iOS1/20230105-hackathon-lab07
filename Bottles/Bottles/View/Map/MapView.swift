@@ -51,7 +51,29 @@ struct MapView: View {
                     shopPhoneNumber: "",
                     shopSNSLink: ""),
             latitude: 37.559781,
-            longitude: 127.076192)
+            longitude: 127.076192),
+        MyAroundShop(
+            shopInfo:
+                ShopInfo(
+                    id: "보틀",
+                    shopAddress: "서울 광진구 면목로7길 25",
+                    shopItems: [
+                        ItemInfo(
+                            id: "",
+                            itemDescription: "",
+                            itemImage: "",
+                            itemName: "",
+                            itemPrice: 0, itemTags: [])],
+                    shopIntroduction: "",
+                    shopLocation: Location(id: "54612312221", latitude: 37.559781, longtitude: 127.076192),
+                    shopName: "보틀",
+                    shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
+                    shopOpenTimes: [OpenTime(id: "", closedTime: Date(), openTime: Date(), isOpened: false)],
+                    shopPhoneNumber: "",
+                    shopSNSLink: ""),
+            latitude: 37.559683,
+            longitude: 127.076294)
+        
     ]
     
     var body: some View {
@@ -79,14 +101,15 @@ struct MapView: View {
                             }
                         }
                     }
+                    
                 }
-                
                 if isCarousel {
                     NavigationLink {
                         
                     } label: {
-//                        Rectangle()
+                        //MapViewCell(shopInfo: )
                     }
+                    .position(x: 200, y: 600)
                 }
             }
         }

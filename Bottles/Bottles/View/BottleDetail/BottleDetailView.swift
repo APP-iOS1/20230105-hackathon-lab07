@@ -52,7 +52,7 @@ struct BottleDetailView: View {
                                     .scaledToFit()
                                     .frame(width: 25, height: 25)
                                     .offset(x: 160, y: -120)
-                                    .foregroundColor(.purple)
+                                    .foregroundColor(.accentColor)
                                     .onTapGesture {
                                         isSelected.toggle()
                                     }
@@ -154,7 +154,7 @@ struct BottleDetailView: View {
                         .bold()
                         .frame(width: 350, height: 60)
                 }
-                .background(.purple)
+                .background(Color.accentColor)
                 .cornerRadius(10)
             }
             .padding(20)
