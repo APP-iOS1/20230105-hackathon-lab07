@@ -31,55 +31,51 @@ struct MapView: View {
             latitudeDelta: 0.02,
             longitudeDelta: 0.02))
     @State private var isCarousel: Bool = false
-    
-    let myAroundShopData: [MyAroundShop] = [
-        MyAroundShop(
-            shopInfo:
-                ShopInfo(
-                    id: "",
-                    shopAddress: "",
-                    shopItems: [
-                        ItemInfo(
-                            id: "",
-                            itemDescription: "",
-                            itemImage: "",
-                            itemName: "",
-                            itemPrice: 0, itemTags: [])],
-                    shopIntroduction: "",
-                    shopLocationLatitude: 37.559781,
-                    shopLocationLontitude: 127.076192,
-                    shopName: "미들",
-                    shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
-                    shopOpenTimes: [OpenTime(id: "", closedTime: "", openTime: "", isOpened: false)],
-                    shopPhoneNumber: "",
-                    shopSNSLink: ""),
-            latitude: 37.559683,
-            longitude: 127.076294)
-        
-    ]
-    
-    @State private var shopData: ShopInfo =
-    ShopInfo(
-        id: "",
-        shopAddress: "",
-        shopItems: [
-            ItemInfo(
-                id: "",
-                itemDescription: "",
-                itemImage: "",
-                itemName: "",
-                itemPrice: 0, itemTags: [])],
-        shopIntroduction: "",
-        shopLocationLatitude: 37.559781,
-        shopLocationLontitude: 127.076192,
-        shopName: "",
-        shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
-        shopOpenTimes: [OpenTime(id: "", closedTime: "", openTime: "", isOpened: false)],
-        shopPhoneNumber: "",
-        shopSNSLink: "")
+//
+//    let myAroundShopData: [MyAroundShop] = [
+//        MyAroundShop(
+//            shopInfo:
+//                ShopInfo(
+//                    id: "",
+//                    shopAddress: "",
+//                    shopItems: [
+//                        ItemInfo(
+//                            id: "",
+//
+//                            itemImage: "",
+//                            itemName: "",
+//                            itemPrice: 0,
+//                    shopIntroduction: "",
+//                    shopLocationLatitude: 37.559781,
+//                    shopLocationLontitude: 127.076192,
+//                    shopName: "미들",
+//                    shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
+//                    shopPhoneNumber: "",
+//                    shopSNSLink: ""))
+//
+//    ]
+//
+//    @State private var shopData: ShopInfo =
+//    ShopInfo(
+//        id: "",
+//        shopAddress: "",
+//        shopItems: [
+//            ItemInfo(
+//                id: "",
+//
+//                itemImage: "",
+//                itemName: "",
+//                itemPrice: 0)],
+//        shopIntroduction: "",
+//        shopLocationLatitude: 37.559781,
+//        shopLocationLontitude: 127.076192,
+//        shopName: "",
+//        shopPhoneNumber: "",
+//        shopSNSLink: "")
     
     var body: some View {
         NavigationStack {
+            /*
             ZStack {
                 Map(coordinateRegion: $mapViewModel.region,
                     showsUserLocation: true, annotationItems: myAroundShopData
@@ -121,6 +117,7 @@ struct MapView: View {
                 }
                 .position(x: 300, y: 520)
             }
+        */
         }
         .onAppear{
             mapViewModel.checkLocationIsEnbeld()

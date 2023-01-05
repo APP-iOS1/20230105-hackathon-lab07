@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ItemInfo1: Codable, Hashable, Identifiable {
     var id: String = UUID().uuidString
     var itemDescription: String

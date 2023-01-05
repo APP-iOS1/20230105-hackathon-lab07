@@ -13,21 +13,19 @@ import Foundation
 /// - Parameter shopIntroduction: 사장님이 작성하는 가게의 소개 입니다.
 /// - Parameter shopLocationLongtitude: 샵의 경도입니다
 /// - Parameter shopLocationLatitude: 샵의 위도입니다
-/// - Parameter shopName: 샵의 이름입니다
-/// - Parameter shopNoticeBoard: 샵의 공지사항입니다
 /// - Parameter shopPhoneNumber: 샵의 연락처입니다
 /// - Parameter shopSNSLink: 샵의 SNS링크입니다.
 struct ShopInfo: Codable, Hashable{
     var id: String = UUID().uuidString
     
     var shopAddress: String
-    var shopItems: [ItemInfo]
+    //var shopItems: [ItemInfo]
     var shopIntroduction: String
     var shopLocationLatitude: Double
     var shopLocationLontitude: Double
     var shopName: String
-    var shopNoticeBoard: [ShopPost]
-    var shopOpenTimes: [OpenTime]
+    //var shopNoticeBoard: [ShopPost]
+    //var shopOpenTimes: [OpenTime]
     var shopPhoneNumber: String
     var shopSNSLink: String
 }
@@ -65,11 +63,28 @@ struct ShopPost: Codable, Hashable{
 struct ItemInfo: Codable, Hashable{
     var id: String = UUID().uuidString
     
-    var itemDescription: String
+    //var itemDescription: String
     var itemImage: String
     var itemName: String
     var itemPrice: Int
-    var itemTags: [String]
+    //var itemTags: [String]
+    
+    var itemML: String
+    var itemNation: String
+    var itemProducer: String
+    
+    var itemLocal1 : String
+    var itemLocal2 : String
+    var itemLocal3 : String
+    
+    var itemVarities : String
+    
+    var itemUse: String
+    var itemType: String
+    var itemYear: Int
+    
+    var itemDegree: String
+    
     //var itemSimilar: [String]
 }
 

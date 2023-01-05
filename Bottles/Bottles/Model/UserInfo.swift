@@ -30,5 +30,6 @@ struct LikeItem : Codable, Hashable{
     var id: String = UUID().uuidString // Hashable Protocol 만족시키기 위함
     var shopId: String
     var itemId: String
+    var likeDate: Date
 }
 

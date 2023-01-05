@@ -24,6 +24,8 @@ struct BottlesApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ItemInfoStore())
+                .environmentObject(ShopInfoStore())
         }
     }
 }

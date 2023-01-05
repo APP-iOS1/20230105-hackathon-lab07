@@ -30,6 +30,7 @@
 		0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E72966865E001FE965 /* ShopInfoStore.swift */; };
 		0405D4EA29669A53001FE965 /* JsonToFirestoreTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */; };
 		046B3AB72966B6F500F6F21D /* csvjson.json in Resources */ = {isa = PBXBuildFile; fileRef = 046B3AB62966B6F400F6F21D /* csvjson.json */; };
+		046B3AB929670B7E00F6F21D /* ItemInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B3AB829670B7E00F6F21D /* ItemInfoStore.swift */; };
 		271F1C792966A41C00FCE981 /* LikeBottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C782966A41C00FCE981 /* LikeBottleView.swift */; };
 		271F1C7C2966A80600FCE981 /* LikeBottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C7B2966A80600FCE981 /* LikeBottleCell.swift */; };
 		271F1C802966BC5D00FCE981 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C7F2966BC5D00FCE981 /* SearchBar.swift */; };
@@ -84,6 +85,7 @@
 		0405D4E72966865E001FE965 /* ShopInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfoStore.swift; sourceTree = "<group>"; };
 		0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonToFirestoreTestView.swift; sourceTree = "<group>"; };
 		046B3AB62966B6F400F6F21D /* csvjson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = csvjson.json; sourceTree = "<group>"; };
+		046B3AB829670B7E00F6F21D /* ItemInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoStore.swift; sourceTree = "<group>"; };
 		271F1C782966A41C00FCE981 /* LikeBottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBottleView.swift; sourceTree = "<group>"; };
 		271F1C7B2966A80600FCE981 /* LikeBottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBottleCell.swift; sourceTree = "<group>"; };
 		271F1C7F2966BC5D00FCE981 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				0405D4E529668636001FE965 /* UserInfoStore.swift */,
 				0405D4E72966865E001FE965 /* ShopInfoStore.swift */,
+				046B3AB829670B7E00F6F21D /* ItemInfoStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046B3AB929670B7E00F6F21D /* ItemInfoStore.swift in Sources */,
 				0405D49A29658293001FE965 /* ContentView.swift in Sources */,
 				271F1C792966A41C00FCE981 /* LikeBottleView.swift in Sources */,
 				271F1C8A2966C1C800FCE981 /* LookingAroundView.swift in Sources */,
