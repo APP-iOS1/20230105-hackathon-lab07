@@ -39,7 +39,7 @@ struct MyPageView: View {
                         TabView {
                             ForEach(1..<4, id: \.self) { _ in
                                 NavigationLink {
-                                    BottleShopDetailView()
+//                                    BottleShopDetailView()
                                 } label: {
                                     VStack {
                                         WaitingPickupCell()
