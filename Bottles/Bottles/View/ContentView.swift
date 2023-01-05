@@ -1,4 +1,3 @@
-//
 //  ContentView.swift
 //  Bottles
 //
@@ -10,9 +9,16 @@ import SwiftUI
 struct ContentView: View {
     @State var isLoading: Bool = true
     @State private var selection: Int = 1
+
     @EnvironmentObject var shopInfoStore: ShopInfoStore
 //    @EnvironmentObject var itemInfoStore: ItemInfoStore
     
+
+
+    //@EnvironmentObject userInfoStore: UserInfoStore
+   
+
+
     var body: some View {
         TabView(selection: $selection) {
             MapView().tabItem {
@@ -30,14 +36,10 @@ struct ContentView: View {
             MyPageView().tabItem {
                 Image(systemName: "person")
             }.tag(5)
-        }
-        .task{
+        }.task{
             await shopInfoStore.requestShopInfos()
-            
         }
-        //        .onAppear {
-        //            UITabBar.appearance().backgroundColor = .black
-        //        }
+
     }
 }
 
@@ -47,22 +49,7 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(ShopInfoStore()).environmentObject(ItemInfoStore())
             
     }
+
+
 }
 
-extension ContentView {
-    
-    var launchScreenView: some View {
-        
-        ZStack(alignment: .center) {
-            
-            LinearGradient(gradient: Gradient(colors: [Color("PrimaryColor"), Color("SubPrimaryColor")]),
-                           startPoint: .top, endPoint: .bottom)
-            .edgesIgnoringSafeArea(.all)
-            
-            Image("LaunchScreenImage")
-            
-        }
-        
-    }
-    
-}

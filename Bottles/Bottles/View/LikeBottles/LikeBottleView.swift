@@ -60,7 +60,7 @@ struct LikeBottleView: View {
                         content: {
                             ForEach(0..<10) { index in
                                 NavigationLink {
-                                    BottleDetailView()
+//                                    BottleDetailView(bottle: index)
                                 } label: {
                                     LikeBottleCell()
 

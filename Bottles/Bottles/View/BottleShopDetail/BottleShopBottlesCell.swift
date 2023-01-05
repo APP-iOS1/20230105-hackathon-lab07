@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct BottleShopBottlesCell: View {
+    let itemInfo: ItemInfo
     @State private var isSelected: Bool = false
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 AsyncImage(
-                    url: URL(string: "https://myplace-phinf.pstatic.net/20220320_154/1647784529619JP7be_JPEG/upload_bff822e07464876659c23012350d0067.jpg")) { image in
+                    url: URL(string: itemInfo.itemImage)) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -30,13 +31,11 @@ struct BottleShopBottlesCell: View {
                             .offset(x: 60, y: -60)
                             .onTapGesture {
                                 isSelected.toggle()
-                            }
-                    )
+                            })
             }
-            
-            Text("멕켈란 1947")
+            Text(itemInfo.itemName)
                 .bold()
-            Text("₩ 8,500,000")
+            Text("\(itemInfo.itemPrice)")
                 .bold()
         }
         .foregroundColor(.black)
@@ -45,6 +44,6 @@ struct BottleShopBottlesCell: View {
 
 struct BottleShopBottlesCell_Previews: PreviewProvider {
     static var previews: some View {
-        BottleShopBottlesCell()
+        BottleShopBottlesCell(itemInfo: ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: "", itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemDegree: ""))
     }
 }

@@ -103,7 +103,7 @@ struct MapView: View {
                 
                 if isCarousel {
                     NavigationLink {
-                       BottleShopDetailView()
+//                       BottleShopDetailView()
                     } label: {
                         MapViewCell()
                     }

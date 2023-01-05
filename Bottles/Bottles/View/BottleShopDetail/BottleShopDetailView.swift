@@ -14,28 +14,8 @@ struct ShopOperationInfo: Hashable {
 }
 
 struct BottleShopDetailView: View {
-    var bottleShopInfo: [ShopOperationInfo] = [
-        ShopOperationInfo(
-            iconName: "pin",
-            operationTime: "",
-            iconContent: "서울 광진구 면목로7길 25"),
-        ShopOperationInfo(
-            iconName: "clock",
-            operationTime: "영업시간",
-            iconContent: "19:00 ~ 24:00"),
-        ShopOperationInfo(
-            iconName: "phone",
-            operationTime: "",
-            iconContent: "010-1234-5678"),
-        ShopOperationInfo(
-            iconName: "house",
-            operationTime: "",
-            iconContent: "https://www.instagram.com/middle_bottle/"),
-        ShopOperationInfo(
-            iconName: "list",
-            operationTime: "",
-            iconContent: "바틀샵 Middle Bottle입니다. 열심히 고른 국내/해외 맥주와 와인을 판매합니다.")
-    ]
+    @EnvironmentObject var itemInfoStore: ItemInfoStore
+    let shopInfo: ShopInfo
     
     var columns: [GridItem] = [
         GridItem(.adaptive(minimum: 200)),
@@ -58,42 +38,40 @@ struct BottleShopDetailView: View {
                     .padding(.bottom, 30)
                     
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("미들보틀")
+                        Text(shopInfo.shopName)
                             .font(.largeTitle)
                             .bold()
-                        
                         // 주소
                         HStack {
-                            Image(bottleShopInfo[0].iconName)
-                            Text(bottleShopInfo[0].iconContent)
+                            Image("pin")
+                            Text(shopInfo.shopAddress)
                         }
                         
-                        // 영업시간
+                        // 영업시간: 임의 데이터
                         HStack {
-                            Image(bottleShopInfo[1].iconName)
-                            Text(bottleShopInfo[1].operationTime)
+                            Image("clock")
+                            Text("영업시간")
                                 .foregroundColor(.purple)
                                 .bold()
-                            Text(bottleShopInfo[1].iconContent)
-                            
+                            Text("18:00 ~ 24:00")
                         }
                         
-                        // 전화번호
+                        // 전화번호: 임의 데이터
                         HStack {
-                            Image(bottleShopInfo[2].iconName)
-                            Text(bottleShopInfo[2].iconContent)
+                            Image("phone")
+                            Text("010-1234-5678")
                         }
                         
-                        // 인스타그램 주소
+                        // 인스타그램 주소: 임의 데이터
                         HStack {
-                            Image(bottleShopInfo[3].iconName)
+                            Image("house")
                             Button {
                                 isShowingSheet.toggle()
                             } label: {
-                                Text(bottleShopInfo[3].iconContent)
+                                Text("https://www.instagram.com/middle_bottle/")
                             }
                             .sheet(isPresented: $isShowingSheet) {
-                                BottleShopInstagramWebView(urlToLoad: bottleShopInfo[3].iconContent)
+                                BottleShopInstagramWebView(urlToLoad: "https://www.instagram.com/middle_bottle/")
                                     .presentationDetents([.medium, .large])
                             }
                             
@@ -101,10 +79,9 @@ struct BottleShopDetailView: View {
                         
                         // 보틀샵 소개
                         HStack(alignment: .top) {
-                            Image(bottleShopInfo[4].iconName)
-                            Text(bottleShopInfo[4].iconContent)
+                            Image("list")
+                            Text(shopInfo.shopIntroduction)
                         }
-                        
                     }
                     .padding(.horizontal, 20)
                     .padding(.bottom, 20)
@@ -141,12 +118,11 @@ struct BottleShopDetailView: View {
                     
                     Section {
                         LazyVGrid(columns: columns) {
-                            ForEach(0 ..< 2) { _ in
-                                
+                            ForEach(itemInfoStore.itemInfos ?? [], id: \.self) { item in
                                 NavigationLink {
-                                    //
+//                                    BottleDetailView(bottle: item)
                                 } label: {
-                                    BottleShopBottlesCell()
+                                    BottleShopBottlesCell(itemInfo: item)
                                 }
                             }
                         }
@@ -158,16 +134,16 @@ struct BottleShopDetailView: View {
                     }
                     .padding(.horizontal, 20)
                 }
-                
             }
-            
         }
-//        .edgesIgnoringSafeArea(.top)
+        .task {
+            await itemInfoStore.requestItemInfos(shopId: self.shopInfo.id)
+        }
     }
 }
 
 struct BottleShopDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BottleShopDetailView()
+        BottleShopDetailView(shopInfo: ShopInfo(shopAddress: "", shopIntroduction: "", shopLocationLatitude: 0.0, shopLocationLontitude: 0.0, shopName: "", shopPhoneNumber: "", shopSNSLink: ""))
     }
 }
