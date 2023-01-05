@@ -20,6 +20,8 @@ struct MyAroundShop: Identifiable {
 }
 
 struct MapView: View {
+    
+    @StateObject private var mapViewModel: MapViewModel = MapViewModel()
     @State private var region: MKCoordinateRegion = MKCoordinateRegion(
         center:
             CLLocationCoordinate2D(
@@ -29,7 +31,7 @@ struct MapView: View {
             latitudeDelta: 0.02,
             longitudeDelta: 0.02))
     @State private var isCarousel: Bool = false
-        
+    
     let myAroundShopData: [MyAroundShop] = [
         MyAroundShop(
             shopInfo:
@@ -77,29 +79,29 @@ struct MapView: View {
     ]
     
     @State private var shopData: ShopInfo =
-            ShopInfo(
+    ShopInfo(
+        id: "",
+        shopAddress: "",
+        shopItems: [
+            ItemInfo(
                 id: "",
-                shopAddress: "",
-                shopItems: [
-                    ItemInfo(
-                        id: "",
-                        itemDescription: "",
-                        itemImage: "",
-                        itemName: "",
-                        itemPrice: 0, itemTags: [])],
-                shopIntroduction: "",
-                shopLocation: Location(id: "54612312221", latitude: 37.559781, longtitude: 127.076192),
-                shopName: "",
-                shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
-                shopOpenTimes: [OpenTime(id: "", closedTime: Date(), openTime: Date(), isOpened: false)],
-                shopPhoneNumber: "",
-                shopSNSLink: "")
+                itemDescription: "",
+                itemImage: "",
+                itemName: "",
+                itemPrice: 0, itemTags: [])],
+        shopIntroduction: "",
+        shopLocation: Location(id: "54612312221", latitude: 37.559781, longtitude: 127.076192),
+        shopName: "",
+        shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
+        shopOpenTimes: [OpenTime(id: "", closedTime: Date(), openTime: Date(), isOpened: false)],
+        shopPhoneNumber: "",
+        shopSNSLink: "")
     
     var body: some View {
         NavigationStack {
             ZStack {
-                Map(coordinateRegion: $region,
-                    annotationItems: myAroundShopData
+                Map(coordinateRegion: $mapViewModel.region,
+                    showsUserLocation: true, annotationItems: myAroundShopData
                 ) { item in
                     MapAnnotation(coordinate: item.coordinate) {
                         VStack {
@@ -109,14 +111,14 @@ struct MapView: View {
                                     shopData = item.shopInfo
                                 } label: {
                                     Image("MapMarker")
-//                                    Text(item.shopInfo.shopName)
-//                                        .padding()
-//                                        .font(.headline)
-//                                        .frame(height: 35)
-//                                        .background(.white)
-//                                        .foregroundColor(.black)
-//                                        .cornerRadius(10)
-//                                        .border(Color("AroundSearchViewColor"))
+                                    //                                    Text(item.shopInfo.shopName)
+                                    //                                        .padding()
+                                    //                                        .font(.headline)
+                                    //                                        .frame(height: 35)
+                                    //                                        .background(.white)
+                                    //                                        .foregroundColor(.black)
+                                    //                                        .cornerRadius(10)
+                                    //                                        .border(Color("AroundSearchViewColor"))
                                 }
                             }
                         }
@@ -131,7 +133,16 @@ struct MapView: View {
                     }
                     .position(x: 200, y: 600)
                 }
+                Button(action:{
+                    mapViewModel.checkLocationIsEnbeld()
+                }) {
+                    Text("내위치로 돌아가기")
+                }
+                .position(x: 300, y: 520)
             }
+        }
+        .onAppear{
+            mapViewModel.checkLocationIsEnbeld()
         }
     }
 }

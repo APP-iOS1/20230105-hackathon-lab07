@@ -17,7 +17,6 @@
 		0405D4A929658296001FE965 /* BottlesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4A829658296001FE965 /* BottlesTests.swift */; };
 		0405D4B329658296001FE965 /* BottlesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4B229658296001FE965 /* BottlesUITests.swift */; };
 		0405D4B529658296001FE965 /* BottlesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4B429658296001FE965 /* BottlesUITestsLaunchTests.swift */; };
-		0405D4C2296582B8001FE965 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0405D4C1296582B8001FE965 /* GoogleService-Info.plist */; };
 		0405D4C52965838A001FE965 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0405D4C42965838A001FE965 /* FirebaseAnalytics */; };
 		0405D4C72965838A001FE965 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0405D4C62965838A001FE965 /* FirebaseAnalyticsSwift */; };
 		0405D4C92965838A001FE965 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0405D4C82965838A001FE965 /* FirebaseAuth */; };
@@ -38,6 +37,8 @@
 		271F1C8D2966CB0300FCE981 /* FollowBottleShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C8C2966CB0300FCE981 /* FollowBottleShopView.swift */; };
 		271F1C902966CE3300FCE981 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C8F2966CE3300FCE981 /* ColorExtension.swift */; };
 		271F1C922966D1F100FCE981 /* MapViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C912966D1F100FCE981 /* MapViewCell.swift */; };
+		7F4C6F042966EF5600B6E05D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C6F032966EF5600B6E05D /* MapViewModel.swift */; };
+		7F4C6F062966FB7C00B6E05D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F4C6F052966FB7C00B6E05D /* GoogleService-Info.plist */; };
 		7F6C4BCB2966E5D10041ECAF /* EditUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6C4BCA2966E5D10041ECAF /* EditUserInfoView.swift */; };
 		7FE7BFCD29669280000188EC /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BFCC29669280000188EC /* MyPageView.swift */; };
 		7FE7BFCF2966A469000188EC /* WaitingPickupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BFCE2966A469000188EC /* WaitingPickupCell.swift */; };
@@ -76,7 +77,6 @@
 		0405D4AE29658296001FE965 /* BottlesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BottlesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0405D4B229658296001FE965 /* BottlesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlesUITests.swift; sourceTree = "<group>"; };
 		0405D4B429658296001FE965 /* BottlesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0405D4C1296582B8001FE965 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0405D4D629659449001FE965 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		0405D4D829659466001FE965 /* ShopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfo.swift; sourceTree = "<group>"; };
 		0405D4E3296685F1001FE965 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
@@ -90,6 +90,8 @@
 		271F1C8C2966CB0300FCE981 /* FollowBottleShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowBottleShopView.swift; sourceTree = "<group>"; };
 		271F1C8F2966CE3300FCE981 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		271F1C912966D1F100FCE981 /* MapViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCell.swift; sourceTree = "<group>"; };
+		7F4C6F032966EF5600B6E05D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		7F4C6F052966FB7C00B6E05D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F6C4BCA2966E5D10041ECAF /* EditUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoView.swift; sourceTree = "<group>"; };
 		7FE7BFCC29669280000188EC /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		7FE7BFCE2966A469000188EC /* WaitingPickupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingPickupCell.swift; sourceTree = "<group>"; };
@@ -156,8 +158,9 @@
 				271F1C8E2966CE2100FCE981 /* Extension */,
 				0405D4E2296685D9001FE965 /* View */,
 				0405D4D32965939B001FE965 /* Model */,
+				7F4C6F022966EF1900B6E05D /* ViewModel */,
 				0405D4D4296593D4001FE965 /* Store */,
-				0405D4C1296582B8001FE965 /* GoogleService-Info.plist */,
+				7F4C6F052966FB7C00B6E05D /* GoogleService-Info.plist */,
 				0405D49B29658296001FE965 /* Assets.xcassets */,
 				0405D49D29658296001FE965 /* Preview Content */,
 			);
@@ -295,6 +298,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		7F4C6F022966EF1900B6E05D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7F4C6F032966EF5600B6E05D /* MapViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -412,8 +423,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0405D49F29658296001FE965 /* Preview Assets.xcassets in Resources */,
-				0405D4C2296582B8001FE965 /* GoogleService-Info.plist in Resources */,
 				0405D49C29658296001FE965 /* Assets.xcassets in Resources */,
+				7F4C6F062966FB7C00B6E05D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +472,7 @@
 				0405D4D929659466001FE965 /* ShopInfo.swift in Sources */,
 				0214085B296695EA0051FF33 /* BottleShopDetailView.swift in Sources */,
 				271F1C922966D1F100FCE981 /* MapViewCell.swift in Sources */,
+				7F4C6F042966EF5600B6E05D /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +634,7 @@
 				DEVELOPMENT_TEAM = CGUAL476T6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -651,6 +664,7 @@
 				DEVELOPMENT_TEAM = CGUAL476T6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
