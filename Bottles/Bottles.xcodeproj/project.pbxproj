@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0214085B296695EA0051FF33 /* BottleShopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0214085A296695EA0051FF33 /* BottleShopDetailView.swift */; };
+		0214085D2966B0920051FF33 /* BottleShopInstagramWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0214085C2966B0920051FF33 /* BottleShopInstagramWebView.swift */; };
+		0214085F2966BBD40051FF33 /* BottleShopBottlesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0214085E2966BBD40051FF33 /* BottleShopBottlesCell.swift */; };
 		0405D49829658293001FE965 /* BottlesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D49729658293001FE965 /* BottlesApp.swift */; };
 		0405D49A29658293001FE965 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D49929658293001FE965 /* ContentView.swift */; };
 		0405D49C29658296001FE965 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0405D49B29658296001FE965 /* Assets.xcassets */; };
@@ -54,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0214085A296695EA0051FF33 /* BottleShopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleShopDetailView.swift; sourceTree = "<group>"; };
+		0214085C2966B0920051FF33 /* BottleShopInstagramWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleShopInstagramWebView.swift; sourceTree = "<group>"; };
+		0214085E2966BBD40051FF33 /* BottleShopBottlesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleShopBottlesCell.swift; sourceTree = "<group>"; };
 		0405D49429658293001FE965 /* Bottles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bottles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0405D49729658293001FE965 /* BottlesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlesApp.swift; sourceTree = "<group>"; };
 		0405D49929658293001FE965 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -193,6 +199,9 @@
 			isa = PBXGroup;
 			children = (
 				0405D4E3296685F1001FE965 /* TempView.swift */,
+				0214085A296695EA0051FF33 /* BottleShopDetailView.swift */,
+				0214085E2966BBD40051FF33 /* BottleShopBottlesCell.swift */,
+				0214085C2966B0920051FF33 /* BottleShopInstagramWebView.swift */,
 				271F1C7A2966A48900FCE981 /* LikeBottles */,
 				82EC1D6C2966929700029E8A /* BottleDetailView.swift */,
 				7FE7BFCC29669280000188EC /* MyPageView.swift */,
@@ -363,12 +372,15 @@
 				7FE7BFCF2966A469000188EC /* WaitingPickupCell.swift in Sources */,
 				0405D4D729659449001FE965 /* UserInfo.swift in Sources */,
 				0405D49829658293001FE965 /* BottlesApp.swift in Sources */,
+				0214085F2966BBD40051FF33 /* BottleShopBottlesCell.swift in Sources */,
 				0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */,
 				0405D4E4296685F1001FE965 /* TempView.swift in Sources */,
 				271F1C802966BC5D00FCE981 /* SearchBar.swift in Sources */,
 				0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */,
+				0214085D2966B0920051FF33 /* BottleShopInstagramWebView.swift in Sources */,
 				7FE7BFD12966B04A000188EC /* PickedUpBottleCell.swift in Sources */,
 				0405D4D929659466001FE965 /* ShopInfo.swift in Sources */,
+				0214085B296695EA0051FF33 /* BottleShopDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
