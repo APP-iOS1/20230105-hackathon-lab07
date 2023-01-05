@@ -115,12 +115,16 @@ struct MapView: View {
                     
                 }
                 HStack {
-                    SearchBar(searchBarText: $mapViewSearchText)
+                    MapViewSearchBar(mapSearchBarText: $mapViewSearchText, searchResult: $searchResult)
                     Button(action: {
                         searchResult = getSearchResult(searchText: mapViewSearchText)
                     }){
                         Text("검색")
+                            .foregroundColor(.white)
                     }
+                    .frame(width: 50, height: 40)
+                    .background(Color.mainColor)
+                    .cornerRadius(10)
                 }
                 .offset(y: -330)
 
@@ -138,6 +142,8 @@ struct MapView: View {
                 }
                 Button(action:{
                     mapViewModel.region.center = mapViewModel.locationManager?.location?.coordinate ?? MapDetails.startingLocation
+//                    mapViewModel.checkLocationIsEnbeld()
+//                    mapViewModel.region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
                 }) {
                     Image("gps_Image")
                         .resizable()
@@ -151,9 +157,10 @@ struct MapView: View {
                     distancefilter.toggle()
                     searchResult = getSearchResult(searchText: mapViewSearchText)
                 }) {
-                    Image("gps_Image")
-                        .resizable()
-                        .frame(width: 40, height: 40)
+                    Text("내 주변 5km")
+//                    Image("gps_Image")
+//                        .resizable()
+//                        .frame(width: 40, height: 40)
                 }
                 .position(x: 354, y: 420)
             }
@@ -169,13 +176,22 @@ struct MapView: View {
     func getSearchResult(searchText: String) -> [ShopInfo] {
         let filteredData = self.shopInfoStore.shopInfos
         
-        if !searchText.isEmpty {
-            return filteredData.filter {
-                $0.shopName.contains(searchText)
+        if distancefilter {
+            if !searchText.isEmpty {
+                return filteredData.filter {
+                    $0.shopName.contains(searchText) &&
+                    $0.shopCoordinates.distance(from: mapViewModel.region.center) < 5000
+                }
+            } else {
+                return filteredData.filter {
+                    $0.shopCoordinates.distance(from: mapViewModel.region.center) < 5000
+                }
             }
-        } else if distancefilter && !searchText.isEmpty {
-            return filteredData.filter {
-                $0.shopName.contains(searchText) && $0.shopCoordinates.distance(from: mapViewModel.region.center) < 5000
+        } else {
+            if !searchText.isEmpty {
+                return filteredData.filter {
+                    $0.shopName.contains(searchText)
+                }
             }
         }
         return filteredData
