@@ -22,7 +22,7 @@ struct BottleDetailView: View {
     let itemInfo1: [ItemInfo1] = [
         ItemInfo1(itemDescription: "사장님 한마디 하세요..", itemImage: "https://media.discordapp.net/attachments/1013996253283106876/1060431379525017680/036.png", itemName: "맥켈란 1947", itemPrice: 8500000, itemTags: ["1"])
     ]
-    
+    @EnvironmentObject var itemInfoStore: ItemInfoStore
     @State var isSelected: Bool = true
     var bottle: ItemInfo
     
@@ -158,6 +158,9 @@ struct BottleDetailView: View {
                 .cornerRadius(10)
             }
             .padding(20)
+        }
+        .task{
+            await itemInfoStore.requestItemInfos(shopId: bottle.id)
         }
     }
 }
