@@ -44,6 +44,7 @@ struct LikeBottleCell: View {
         .overlay {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(.gray, lineWidth: 1)
+                
         }
     }
 }

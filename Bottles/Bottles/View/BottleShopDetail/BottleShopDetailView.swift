@@ -44,7 +44,7 @@ struct BottleShopDetailView: View {
     @State private var isShowingSheet: Bool = false
     
     var body: some View {
-        NavigationStack {
+        
             ScrollView {
                 
                 VStack(spacing: 20) {
@@ -163,8 +163,8 @@ struct BottleShopDetailView: View {
                 
             }
             
-        }
-        .edgesIgnoringSafeArea(.top)
+        
+//        .edgesIgnoringSafeArea(.top)
     }
 }
 
