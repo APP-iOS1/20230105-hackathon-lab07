@@ -112,14 +112,16 @@ struct MapView: View {
                     } label: {
                         MapViewCell(shopInfo: shopData)
                     }
-                    .position(x: 200, y: 600)
+                    .position(x: 197, y: 620)
                 }
                 Button(action:{
                     mapViewModel.checkLocationIsEnbeld()
                 }) {
-                    Text("내위치로 돌아가기")
+                    Image("gps_Image")
+                        .resizable()
+                        .frame(width: 40, height: 40)
                 }
-                .position(x: 300, y: 520)
+                .position(x: 350, y: 520)
             }
         }
         .onAppear{
