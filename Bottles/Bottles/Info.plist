@@ -19,7 +19,7 @@
 			<string>naverlogin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.bottles.Bottles</string>
+				<string>naverlogin</string>
 			</array>
 		</dict>
 		<dict>

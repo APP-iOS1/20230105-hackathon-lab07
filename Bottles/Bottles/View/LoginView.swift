@@ -9,7 +9,8 @@ import SwiftUI
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
-//import NaverThirdPartyLogin
+import NaverThirdPartyLogin
+import Alamofire
 import GoogleSignIn
 import FirebaseCore
 import Firebase
@@ -18,115 +19,268 @@ import GoogleSignInSwift
 import FBSDKLoginKit
 
 var manager = LoginManager()
+class NaverLoginViewModel : NSObject, UIApplicationDelegate, NaverThirdPartyLoginConnectionDelegate {
+    var loginView: LoginView
+    init(loginView: LoginView) {
+        self.loginView = loginView
+    }
+    var userName : String?
+    var email : String?
+    func getUserInfo() {
+        guard let tokenType = NaverThirdPartyLoginConnection.getSharedInstance().tokenType else { return }
+        guard let accessToken = NaverThirdPartyLoginConnection.getSharedInstance().accessToken else { return }
+        let url = "https://openapi.naver.com/v1/nid/me"
+        
+        AF.request(url,
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: ["Authorization": "\(tokenType) \(accessToken)"]
+        ).responseJSON { response in
+            guard let result = response.value as? [String: Any] else { return }
+            guard let object = result["response"] as? [String: Any] else { return }
+            
+            guard let name = object["name"] as? String else { return }
+            guard let email = object["email"] as? String else { return }
+            
+            self.userName = name
+            self.email = email
+            print("username: \(self.userName)")
+            print("email: \(self.email)")
+            self.loginView.handleFetchDataSuccessOnNaverLogin()
+        }
+    }
+
+    // 토큰 발급 성공시
+    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+        getUserInfo()
+    }
+    // 토큰 갱신시
+    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() { }
+    // 로그아웃(토큰 삭제)시
+    func oauth20ConnectionDidFinishDeleteToken() { }
+    // Error 발생
+    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) { }
+}
 
 struct LoginView: View {
     
     @State private var userName : String = ""
+    @State private var presentUserInfoSheet : Bool = false
+    @State private var naverLoginModel : NaverLoginViewModel?
     
+    //네이버 로그인 성공 시
+    func handleFetchDataSuccessOnNaverLogin() {
+        print("네이버로부터 받아온 userName: \(naverLoginModel!.userName!)")
+        
+        userName = naverLoginModel!.userName!
+        
+        if userName != nil {
+            presentUserInfoSheet = true
+            print("결과2 : \(presentUserInfoSheet)")
+        }
+    }
+
     var body: some View {
         
-        //카카오 버튼
-        Button {
-            // 카카오톡이 설치되어 있는지 확인하는 함수
-            if (UserApi.isKakaoTalkLoginAvailable()) {
-                // 카카오톡으로 로그인하는 함수
-                UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-                    // TODO: 카카오톡으로 로그인 시 user 정보가 잘 들어오는지 확인 필요
-                    UserApi.shared.me { User, Error in
-                        if let name = User?.kakaoAccount?.profile?.nickname {
-                            userName = name
-                            print("결과 : \(userName)")
-                        }
-                    }
-                    
-                }
-            } else {
-                // 카카오 계정으로 로그인하는 함수
-                UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                    // 계정으로 로그인 이후, 로그인 된 계정 nickname을 앱으로 받아옴
-                    UserApi.shared.me { User, Error in
-                        if let name = User?.kakaoAccount?.profile?.nickname {
-                            userName = name
-                            print("결과 : \(userName)")
-                        }
-                    }
-                }
-                
-            }
-        } label: {
-            Text("카카오")
-        }
         
-        //페이스북 버튼
-        Button {
-            manager.logIn(permissions: ["public_profile", "email"], from: nil) { (result, error) in
-                if error != nil {
-                    print(error!.localizedDescription)
-                    return
-                }
-                if !result!.isCancelled {
+        VStack {
+            Spacer()
+            Image("bottlesLogo")
+                .resizable()
+                .frame(width: 280, height: 63)
+            Spacer()
+            Text("소셜 회원가입 및 로그인")
+                .padding(.bottom, 20)
 
-                    let request = GraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"])
-                    request.start { (_, res, _) in
-                        guard let profileData = res as? [String: Any] else { return }
-                        let token = profileData["id"]
-                        let email = profileData["email"] as! String
-                        let name = profileData["name"] as! String
-                        print("result: \(token), \(email), \(name)")
-                    }
-                }
-            }
-        } label: {
-            Text("페이스북 로그인")
-        }
-        
-        Button(action: {
-            LoginManager.init().logOut()
-            let isTokenExist = AccessToken.current?.tokenString != nil
-            let isTokenValid = !(AccessToken.current?.isExpired ?? true)
-            print(isTokenExist)
-            print(isTokenValid)
+                
             
-        }) {
-            Text("페이스북 로그아웃")
-        }
-        
-        
-        //구글 버튼
-        Button {
-            guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-
-            // Create Google Sign In configuration object.
-            let config = GIDConfiguration(clientID: clientID)
-
-            // Start the sign in flow!
-            GIDSignIn.sharedInstance.signIn(with: config, presenting: getRootViewController()) { user, error in
-
-              if let error = error {
-                // ...
-                return
-              }
-            print("유저 \(user)")
+            HStack{
                 
-                var username = user?.profile?.name
-                var userid = user?.userID
-                print("구글결과 \(username)")
-                print("구글결과 \(userid)")
+                //네이버 로그인 버튼
+                Button {
+                    if naverLoginModel == nil {
+                        naverLoginModel = NaverLoginViewModel(loginView: self)
+                    }
+                    // 네이버 앱으로 로그인 허용
+                    NaverThirdPartyLoginConnection.getSharedInstance()?.isNaverAppOauthEnable = true
+                    // 브라우저 로그인 허용
+                    NaverThirdPartyLoginConnection.getSharedInstance()?.isInAppOauthEnable = true
+                    
+                    // 네이버 로그인 세로모드 고정
+                    NaverThirdPartyLoginConnection.getSharedInstance().setOnlyPortraitSupportInIphone(true)
+                    
+                    // NaverThirdPartyConstantsForApp.h에 선언한 상수 등록
+                    NaverThirdPartyLoginConnection.getSharedInstance().serviceUrlScheme = kServiceAppUrlScheme
+                    NaverThirdPartyLoginConnection.getSharedInstance().consumerKey = kConsumerKey
+                    NaverThirdPartyLoginConnection.getSharedInstance().consumerSecret = kConsumerSecret
+                    NaverThirdPartyLoginConnection.getSharedInstance().appName = kServiceAppName
+                    NaverThirdPartyLoginConnection.getSharedInstance().resetToken()
+                    NaverThirdPartyLoginConnection.getSharedInstance().requestDeleteToken()
+                    NaverThirdPartyLoginConnection.getSharedInstance().delegate = naverLoginModel.self
+                    NaverThirdPartyLoginConnection
+                        .getSharedInstance()
+                        .requestThirdPartyLogin()
+                } label: {
+                    Image("naverLogo")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                }.onOpenURL { url in
+                    // 브라우저에서 나온 직후, 네이버 로그인하기 위해 브라우저를 연 것이라면 토큰 발급 요청
+                        // Token 발급 요청
+                    NaverThirdPartyLoginConnection
+                        .getSharedInstance()
+                        .receiveAccessToken(url)
+                }
+                .padding(.trailing, 5)
+
+                //카카오 버튼
+                Button {
+                    // 카카오톡이 설치되어 있는지 확인하는 함수
+                    if (UserApi.isKakaoTalkLoginAvailable()) {
+                        // 카카오톡으로 로그인하는 함수
+                        UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                            // TODO: 카카오톡으로 로그인 시 user 정보가 잘 들어오는지 확인 필요
+                            UserApi.shared.me { User, Error in
+                                if let name = User?.kakaoAccount?.profile?.nickname {
+                                    userName = name
+                                    print("결과1 : \(userName)")
+                                }
+                                if userName != nil {
+                                    presentUserInfoSheet = true
+                                    print("결과2 : \(presentUserInfoSheet)")
+                                }
+                            }
+                            
+                        }
+                    } else {
+                        // 카카오 계정으로 로그인하는 함수
+                        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                            print("찐 계정접근 \(oauthToken)")
+                            // 계정으로 로그인 이후, 로그인 된 계정 nickname을 앱으로 받아옴
+                            UserApi.shared.me { User, Error in
+                                if let name = User?.kakaoAccount?.profile?.nickname {
+                                    userName = name
+                                    print("결과1 : \(userName)")
+                                }
+                                if userName != nil {
+                                    presentUserInfoSheet = true
+                                    print("결과2 : \(presentUserInfoSheet)")
+                                }
+                            }
+                        }
+                        
+                    }
+                } label: {
+                    Image("kakaoLogo")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                }
+                .padding(.trailing, 5)
                 
-              guard
-                let authentication = user?.authentication,
-                let idToken = authentication.idToken
-              else {
-                return
-              }
+                //페이스북 버튼
+                Button {
+                    manager.logIn(permissions: ["public_profile", "email"], from: nil) { (result, error) in
+                        if error != nil {
+                            print(error!.localizedDescription)
+                            return
+                        }
+                        if !result!.isCancelled {
+                            
+                            let request = GraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"])
+                            request.start { (_, res, _) in
+                                guard let profileData = res as? [String: Any] else { return }
+                                let token = profileData["id"]
+                                let email = profileData["email"] as! String
+                                let name = profileData["name"] as! String
+                                userName = name
+                                if userName != nil {
+                                    presentUserInfoSheet = true
+                                    print("결과2 : \(presentUserInfoSheet)")
+                                }
+                            }
+                        }
+                    }
+                } label: {
+                    Image("facebookLogo")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                }
+                .padding(.trailing, 5)
+                
+    //            Button(action: {
+    //                LoginManager.init().logOut()
+    //                let isTokenExist = AccessToken.current?.tokenString != nil
+    //                let isTokenValid = !(AccessToken.current?.isExpired ?? true)
+    //                print(isTokenExist)
+    //                print(isTokenValid)
+    //
+    //            }) {
+    //                Text("페이스북 로그아웃")
+    //            }
+    //
+                
+                //구글 버튼
+                Button {
+                    guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+                    
+                    // Create Google Sign In configuration object.
+                    let config = GIDConfiguration(clientID: clientID)
+                    
+                    // Start the sign in flow!
+                    GIDSignIn.sharedInstance.signIn(with: config, presenting: getRootViewController()) { user, error in
+                        
+                        if let error = error {
+                            // ...
+                            return
+                        }
+                        print("유저 \(user)")
+                        
+                        var name = user?.profile?.name
+                        var userid = user?.userID
+                        print("구글결과 \(name)")
+                        print("구글결과 \(userid)")
+                        
+                        guard
+                            let authentication = user?.authentication,
+                            let idToken = authentication.idToken
+                        else {
+                            return
+                        }
+                        
+                        let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                                       accessToken: authentication.accessToken)
+                        
+                        if let userName = name {
+                            self.userName = userName
+                            presentUserInfoSheet = true
+                            print("결과2 : \(presentUserInfoSheet)")
+                        }
+                    
+                    }
+                } label: {
+                    Image("googleLogo")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .overlay { // <-
+                            Circle().stroke(.gray, lineWidth: 2)
+                          }
+                }
+                .padding(.trailing, 5)
+                
+                Button {
+                    //
+                } label: {
+                    Image("appleLogo")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                }
+                
 
-              let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                             accessToken: authentication.accessToken)
-
-              // ...
             }
-        } label: {
-            Text("구글")
+            Spacer()
+        }
+        .sheet(isPresented: $presentUserInfoSheet) {
+            UserInfoView()
         }
     }
     

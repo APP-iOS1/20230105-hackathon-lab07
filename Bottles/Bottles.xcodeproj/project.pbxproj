@@ -28,7 +28,10 @@
 		0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E72966865E001FE965 /* ShopInfoStore.swift */; };
 		92E249EA2966AD060045791D /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 92E249E92966AD060045791D /* FacebookCore */; };
 		92E249EC2966AD060045791D /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 92E249EB2966AD060045791D /* FacebookLogin */; };
-		D74F25F82967150B00C13F14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D74F25F72967150A00C13F14 /* GoogleService-Info.plist */; };
+		D70037AC29672A7900BF096C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D70037AB29672A7900BF096C /* GoogleService-Info.plist */; };
+		D70037AE29673D7600BF096C /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70037AD29673D7600BF096C /* UserInfoView.swift */; };
+		D70037B12967454B00BF096C /* NaverThirdPartyLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70037AF29673EB700BF096C /* NaverThirdPartyLogin.framework */; };
+		D70037B22967454B00BF096C /* NaverThirdPartyLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D70037AF29673EB700BF096C /* NaverThirdPartyLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D74F25FA2967151300C13F14 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = D74F25F92967151300C13F14 /* credentials.plist */; };
 		D74F25FD296715CC00C13F14 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D74F25FC296715CC00C13F14 /* GoogleSignIn */; };
 		D74F25FF296715CC00C13F14 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D74F25FE296715CC00C13F14 /* GoogleSignInSwift */; };
@@ -53,6 +56,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D70037B32967454B00BF096C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D70037B22967454B00BF096C /* NaverThirdPartyLogin.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0405D49429658293001FE965 /* Bottles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bottles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0405D49729658293001FE965 /* BottlesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlesApp.swift; sourceTree = "<group>"; };
@@ -71,7 +88,9 @@
 		0405D4E72966865E001FE965 /* ShopInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfoStore.swift; sourceTree = "<group>"; };
 		92E249E72966A82E0045791D /* BottlesRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BottlesRelease.entitlements; sourceTree = "<group>"; };
 		92E249ED2966CBA50045791D /* Bottles.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bottles.entitlements; sourceTree = "<group>"; };
-		D74F25F72967150A00C13F14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D70037AB29672A7900BF096C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D70037AD29673D7600BF096C /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		D70037AF29673EB700BF096C /* NaverThirdPartyLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NaverThirdPartyLogin.framework; sourceTree = "<group>"; };
 		D74F25F92967151300C13F14 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		D752DFA329668AFE0030A1CB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D752DFA829668C510030A1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +108,7 @@
 				D752DFA729668C040030A1CB /* KakaoSDK in Frameworks */,
 				0405D4C72965838A001FE965 /* FirebaseAnalyticsSwift in Frameworks */,
 				0405D4C92965838A001FE965 /* FirebaseAuth in Frameworks */,
+				D70037B12967454B00BF096C /* NaverThirdPartyLogin.framework in Frameworks */,
 				0405D4D12965838A001FE965 /* FirebaseFirestoreSwift in Frameworks */,
 				0405D4CB2965838A001FE965 /* FirebaseDatabase in Frameworks */,
 				0405D4C52965838A001FE965 /* FirebaseAnalytics in Frameworks */,
@@ -137,7 +157,8 @@
 		0405D49629658293001FE965 /* Bottles */ = {
 			isa = PBXGroup;
 			children = (
-				D74F25F72967150A00C13F14 /* GoogleService-Info.plist */,
+				D70037AB29672A7900BF096C /* GoogleService-Info.plist */,
+				D70037AF29673EB700BF096C /* NaverThirdPartyLogin.framework */,
 				D74F25F92967151300C13F14 /* credentials.plist */,
 				92E249ED2966CBA50045791D /* Bottles.entitlements */,
 				92E249E72966A82E0045791D /* BottlesRelease.entitlements */,
@@ -201,6 +222,7 @@
 			children = (
 				0405D4E3296685F1001FE965 /* TempView.swift */,
 				D752DFA329668AFE0030A1CB /* LoginView.swift */,
+				D70037AD29673D7600BF096C /* UserInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +237,7 @@
 				0405D49029658293001FE965 /* Sources */,
 				0405D49129658293001FE965 /* Frameworks */,
 				0405D49229658293001FE965 /* Resources */,
+				D70037B32967454B00BF096C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -330,7 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0405D49F29658296001FE965 /* Preview Assets.xcassets in Resources */,
-				D74F25F82967150B00C13F14 /* GoogleService-Info.plist in Resources */,
+				D70037AC29672A7900BF096C /* GoogleService-Info.plist in Resources */,
 				D74F25FA2967151300C13F14 /* credentials.plist in Resources */,
 				0405D49C29658296001FE965 /* Assets.xcassets in Resources */,
 			);
@@ -357,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70037AE29673D7600BF096C /* UserInfoView.swift in Sources */,
 				0405D49A29658293001FE965 /* ContentView.swift in Sources */,
 				0405D4D729659449001FE965 /* UserInfo.swift in Sources */,
 				0405D49829658293001FE965 /* BottlesApp.swift in Sources */,
@@ -526,6 +550,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Bottles/Preview Content\"";
 				DEVELOPMENT_TEAM = 4RG9LBF3XF;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Bottles",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bottles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -558,6 +586,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Bottles/Preview Content\"";
 				DEVELOPMENT_TEAM = 4RG9LBF3XF;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Bottles",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bottles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
