@@ -27,6 +27,8 @@
 		0405D4E4296685F1001FE965 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E3296685F1001FE965 /* TempView.swift */; };
 		0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E529668636001FE965 /* UserInfoStore.swift */; };
 		0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E72966865E001FE965 /* ShopInfoStore.swift */; };
+		D752DFA429668AFE0030A1CB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D752DFA329668AFE0030A1CB /* LoginView.swift */; };
+		D752DFA729668C040030A1CB /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D752DFA629668C040030A1CB /* KakaoSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		0405D4E3296685F1001FE965 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 		0405D4E529668636001FE965 /* UserInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStore.swift; sourceTree = "<group>"; };
 		0405D4E72966865E001FE965 /* ShopInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfoStore.swift; sourceTree = "<group>"; };
+		D752DFA329668AFE0030A1CB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D752DFA829668C510030A1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0405D4CD2965838A001FE965 /* FirebaseDatabaseSwift in Frameworks */,
+				D752DFA729668C040030A1CB /* KakaoSDK in Frameworks */,
 				0405D4C72965838A001FE965 /* FirebaseAnalyticsSwift in Frameworks */,
 				0405D4C92965838A001FE965 /* FirebaseAuth in Frameworks */,
 				0405D4D12965838A001FE965 /* FirebaseFirestoreSwift in Frameworks */,
@@ -120,6 +125,7 @@
 		0405D49629658293001FE965 /* Bottles */ = {
 			isa = PBXGroup;
 			children = (
+				D752DFA829668C510030A1CB /* Info.plist */,
 				0405D4E2296685D9001FE965 /* View */,
 				0405D4D32965939B001FE965 /* Model */,
 				0405D4D4296593D4001FE965 /* Store */,
@@ -179,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				0405D4E3296685F1001FE965 /* TempView.swift */,
+				D752DFA329668AFE0030A1CB /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +214,7 @@
 				0405D4CC2965838A001FE965 /* FirebaseDatabaseSwift */,
 				0405D4CE2965838A001FE965 /* FirebaseFirestore */,
 				0405D4D02965838A001FE965 /* FirebaseFirestoreSwift */,
+				D752DFA629668C040030A1CB /* KakaoSDK */,
 			);
 			productName = Bottles;
 			productReference = 0405D49429658293001FE965 /* Bottles.app */;
@@ -282,6 +290,7 @@
 			mainGroup = 0405D48B29658293001FE965;
 			packageReferences = (
 				0405D4C32965838A001FE965 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D752DFA529668C040030A1CB /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 0405D49529658293001FE965 /* Products */;
 			projectDirPath = "";
@@ -332,6 +341,7 @@
 				0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */,
 				0405D4E4296685F1001FE965 /* TempView.swift in Sources */,
 				0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */,
+				D752DFA429668AFE0030A1CB /* LoginView.swift in Sources */,
 				0405D4D929659466001FE965 /* ShopInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,9 +501,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bottles/Preview Content\"";
-				DEVELOPMENT_TEAM = CGUAL476T6;
+				DEVELOPMENT_TEAM = 4RG9LBF3XF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Bottles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -520,9 +531,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bottles/Preview Content\"";
-				DEVELOPMENT_TEAM = CGUAL476T6;
+				DEVELOPMENT_TEAM = 4RG9LBF3XF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Bottles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -667,6 +679,14 @@
 				kind = branch;
 			};
 		};
+		D752DFA529668C040030A1CB /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -704,6 +724,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0405D4C32965838A001FE965 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		D752DFA629668C040030A1CB /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D752DFA529668C040030A1CB /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
