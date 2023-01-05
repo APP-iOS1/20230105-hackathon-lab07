@@ -27,6 +27,7 @@
 		0405D4E4296685F1001FE965 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E3296685F1001FE965 /* TempView.swift */; };
 		0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E529668636001FE965 /* UserInfoStore.swift */; };
 		0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E72966865E001FE965 /* ShopInfoStore.swift */; };
+		82EC1D6D2966929700029E8A /* BottleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EC1D6C2966929700029E8A /* BottleDetailView.swift */; };
 		7FE7BFCD29669280000188EC /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BFCC29669280000188EC /* MyPageView.swift */; };
 		7FE7BFCF2966A469000188EC /* WaitingPickupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BFCE2966A469000188EC /* WaitingPickupCell.swift */; };
 		7FE7BFD12966B04A000188EC /* PickedUpBottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BFD02966B04A000188EC /* PickedUpBottleCell.swift */; };
@@ -66,6 +67,7 @@
 		0405D4E3296685F1001FE965 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 		0405D4E529668636001FE965 /* UserInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStore.swift; sourceTree = "<group>"; };
 		0405D4E72966865E001FE965 /* ShopInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfoStore.swift; sourceTree = "<group>"; };
+		82EC1D6C2966929700029E8A /* BottleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleDetailView.swift; sourceTree = "<group>"; };
 		7FE7BFCC29669280000188EC /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		7FE7BFCE2966A469000188EC /* WaitingPickupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingPickupCell.swift; sourceTree = "<group>"; };
 		7FE7BFD02966B04A000188EC /* PickedUpBottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickedUpBottleCell.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				0405D4E3296685F1001FE965 /* TempView.swift */,
+				82EC1D6C2966929700029E8A /* BottleDetailView.swift */,
 				7FE7BFCC29669280000188EC /* MyPageView.swift */,
 				7FE7BFCE2966A469000188EC /* WaitingPickupCell.swift */,
 				7FE7BFD02966B04A000188EC /* PickedUpBottleCell.swift */,
@@ -336,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0405D49A29658293001FE965 /* ContentView.swift in Sources */,
+				82EC1D6D2966929700029E8A /* BottleDetailView.swift in Sources */,
 				7FE7BFCD29669280000188EC /* MyPageView.swift in Sources */,
 				7FE7BFCF2966A469000188EC /* WaitingPickupCell.swift in Sources */,
 				0405D4D729659449001FE965 /* UserInfo.swift in Sources */,
