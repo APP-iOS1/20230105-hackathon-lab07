@@ -19,7 +19,7 @@ struct LikeBottleCell: View {
                     isLiked.toggle()
                 } label: {
                     Image(systemName: isLiked ? "heart.fill" : "heart")
-                        .foregroundColor(.purple)
+                        .foregroundColor(.mainColor)
                 }
             }
             Image("whisky_Image1")

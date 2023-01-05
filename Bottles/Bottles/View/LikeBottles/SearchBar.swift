@@ -16,7 +16,7 @@ struct SearchBar: View {
         // MARK: - SearchBar
         HStack {
             Image(systemName: "magnifyingglass")
-                .foregroundColor(.purple)
+                .foregroundColor(.accentColor)
                 .bold()
             TextField("검색어를 입력해주세요", text: $searchBarText)
                 .multilineTextAlignment(.center)

@@ -45,6 +45,7 @@ struct WaitingPickupCell: View {
                             .font(.subheadline)
                     }
                 }
+                .foregroundColor(.black)
                 .padding(5)
             }
         }

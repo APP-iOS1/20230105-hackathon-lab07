@@ -37,11 +37,15 @@ struct MyPageView: View {
                     .bold()
                 TabView {
                     ForEach(1..<4, id: \.self) { _ in
-                        VStack {
-                            WaitingPickupCell()
-                            Rectangle()
-                                .foregroundColor(.white)
-                                .frame(height: 20)
+                        NavigationLink {
+                            BottleShopDetailView()
+                        } label: {
+                            VStack {
+                                WaitingPickupCell()
+                                Rectangle()
+                                    .foregroundColor(.white)
+                                    .frame(height: 20)
+                            }
                         }
                     }
                 }

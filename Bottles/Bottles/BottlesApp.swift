@@ -23,7 +23,7 @@ struct BottlesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            BottleShopDetailView()
+            ContentView()
         }
     }
 }

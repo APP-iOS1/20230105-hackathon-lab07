@@ -43,9 +43,8 @@ struct LikeBottleView: View {
                         })
                     } label: {
                         Image(systemName: "chevron.up.chevron.down")
-                            .foregroundColor(.purple)
+                            .foregroundColor(.accentColor)
                     }
-                    
                 }
                 .padding(.bottom, -5)
                 .padding(.horizontal, 20)
@@ -61,7 +60,7 @@ struct LikeBottleView: View {
                         content: {
                             ForEach(0..<10) { index in
                                 NavigationLink {
-                                    TempView()
+                                    BottleDetailView()
                                 } label: {
                                     LikeBottleCell()
                                 }
