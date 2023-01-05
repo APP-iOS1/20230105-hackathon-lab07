@@ -36,27 +36,6 @@ struct MapView: View {
         MyAroundShop(
             shopInfo:
                 ShopInfo(
-                    id: "미들보틀",
-                    shopAddress: "서울 광진구 면목로7길 25",
-                    shopItems: [
-                        ItemInfo(
-                            id: "",
-                            itemDescription: "",
-                            itemImage: "",
-                            itemName: "",
-                            itemPrice: 0, itemTags: [])],
-                    shopIntroduction: "",
-                    shopLocation: Location(id: "54612312221", latitude: 37.559781, longtitude: 127.076192),
-                    shopName: "미들보틀",
-                    shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
-                    shopOpenTimes: [OpenTime(id: "", closedTime: Date(), openTime: Date(), isOpened: false)],
-                    shopPhoneNumber: "",
-                    shopSNSLink: ""),
-            latitude: 37.559781,
-            longitude: 127.076192),
-        MyAroundShop(
-            shopInfo:
-                ShopInfo(
                     id: "",
                     shopAddress: "",
                     shopItems: [
@@ -67,10 +46,11 @@ struct MapView: View {
                             itemName: "",
                             itemPrice: 0, itemTags: [])],
                     shopIntroduction: "",
-                    shopLocation: Location(id: "54612312221", latitude: 37.559781, longtitude: 127.076192),
+                    shopLocationLatitude: 37.559781,
+                    shopLocationLontitude: 127.076192,
                     shopName: "미들",
                     shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
-                    shopOpenTimes: [OpenTime(id: "", closedTime: Date(), openTime: Date(), isOpened: false)],
+                    shopOpenTimes: [OpenTime(id: "", closedTime: "", openTime: "", isOpened: false)],
                     shopPhoneNumber: "",
                     shopSNSLink: ""),
             latitude: 37.559683,
@@ -90,10 +70,11 @@ struct MapView: View {
                 itemName: "",
                 itemPrice: 0, itemTags: [])],
         shopIntroduction: "",
-        shopLocation: Location(id: "54612312221", latitude: 37.559781, longtitude: 127.076192),
+        shopLocationLatitude: 37.559781,
+        shopLocationLontitude: 127.076192,
         shopName: "",
         shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
-        shopOpenTimes: [OpenTime(id: "", closedTime: Date(), openTime: Date(), isOpened: false)],
+        shopOpenTimes: [OpenTime(id: "", closedTime: "", openTime: "", isOpened: false)],
         shopPhoneNumber: "",
         shopSNSLink: "")
     

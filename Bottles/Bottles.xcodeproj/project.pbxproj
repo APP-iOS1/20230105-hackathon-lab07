@@ -26,9 +26,10 @@
 		0405D4D12965838A001FE965 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0405D4D02965838A001FE965 /* FirebaseFirestoreSwift */; };
 		0405D4D729659449001FE965 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4D629659449001FE965 /* UserInfo.swift */; };
 		0405D4D929659466001FE965 /* ShopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4D829659466001FE965 /* ShopInfo.swift */; };
-		0405D4E4296685F1001FE965 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E3296685F1001FE965 /* TempView.swift */; };
 		0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E529668636001FE965 /* UserInfoStore.swift */; };
 		0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E72966865E001FE965 /* ShopInfoStore.swift */; };
+		0405D4EA29669A53001FE965 /* JsonToFirestoreTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */; };
+		046B3AB72966B6F500F6F21D /* csvjson.json in Resources */ = {isa = PBXBuildFile; fileRef = 046B3AB62966B6F400F6F21D /* csvjson.json */; };
 		271F1C792966A41C00FCE981 /* LikeBottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C782966A41C00FCE981 /* LikeBottleView.swift */; };
 		271F1C7C2966A80600FCE981 /* LikeBottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C7B2966A80600FCE981 /* LikeBottleCell.swift */; };
 		271F1C802966BC5D00FCE981 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C7F2966BC5D00FCE981 /* SearchBar.swift */; };
@@ -44,8 +45,6 @@
 		7FE7BFCF2966A469000188EC /* WaitingPickupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BFCE2966A469000188EC /* WaitingPickupCell.swift */; };
 		7FE7BFD12966B04A000188EC /* PickedUpBottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BFD02966B04A000188EC /* PickedUpBottleCell.swift */; };
 		82EC1D6D2966929700029E8A /* BottleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EC1D6C2966929700029E8A /* BottleDetailView.swift */; };
-		0405D4EA29669A53001FE965 /* JsonToFirestoreTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */; };
-		046B3AB72966B6F500F6F21D /* csvjson.json in Resources */ = {isa = PBXBuildFile; fileRef = 046B3AB62966B6F400F6F21D /* csvjson.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,9 +80,10 @@
 		0405D4B429658296001FE965 /* BottlesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0405D4D629659449001FE965 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		0405D4D829659466001FE965 /* ShopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfo.swift; sourceTree = "<group>"; };
-		0405D4E3296685F1001FE965 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 		0405D4E529668636001FE965 /* UserInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStore.swift; sourceTree = "<group>"; };
 		0405D4E72966865E001FE965 /* ShopInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfoStore.swift; sourceTree = "<group>"; };
+		0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonToFirestoreTestView.swift; sourceTree = "<group>"; };
+		046B3AB62966B6F400F6F21D /* csvjson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = csvjson.json; sourceTree = "<group>"; };
 		271F1C782966A41C00FCE981 /* LikeBottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBottleView.swift; sourceTree = "<group>"; };
 		271F1C7B2966A80600FCE981 /* LikeBottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBottleCell.swift; sourceTree = "<group>"; };
 		271F1C7F2966BC5D00FCE981 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -99,8 +99,6 @@
 		7FE7BFCE2966A469000188EC /* WaitingPickupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingPickupCell.swift; sourceTree = "<group>"; };
 		7FE7BFD02966B04A000188EC /* PickedUpBottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickedUpBottleCell.swift; sourceTree = "<group>"; };
 		82EC1D6C2966929700029E8A /* BottleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleDetailView.swift; sourceTree = "<group>"; };
-		0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonToFirestoreTestView.swift; sourceTree = "<group>"; };
-		046B3AB62966B6F400F6F21D /* csvjson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = csvjson.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				0405D49929658293001FE965 /* ContentView.swift */,
-				0405D4E3296685F1001FE965 /* TempView.swift */,
 				271F1C8B2966CAEB00FCE981 /* FollowBottleShop */,
 				271F1C882966C1B200FCE981 /* LookingAround */,
 				271F1C852966C14B00FCE981 /* Map */,
@@ -471,7 +468,6 @@
 				271F1C902966CE3300FCE981 /* ColorExtension.swift in Sources */,
 				0405D4EA29669A53001FE965 /* JsonToFirestoreTestView.swift in Sources */,
 				0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */,
-				0405D4E4296685F1001FE965 /* TempView.swift in Sources */,
 				271F1C802966BC5D00FCE981 /* SearchBar.swift in Sources */,
 				0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */,
 				0214085D2966B0920051FF33 /* BottleShopInstagramWebView.swift in Sources */,
