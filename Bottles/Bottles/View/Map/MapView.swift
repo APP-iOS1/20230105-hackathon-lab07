@@ -11,11 +11,9 @@ import MapKit
 struct MyAroundShop: Identifiable {
     let id = UUID()
     var shopInfo: ShopInfo
-    var latitude: Double
-    var longitude: Double
-    
+
     var coordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        CLLocationCoordinate2D(latitude: shopInfo.shopLocationLatitude, longitude: shopInfo.shopLocationLontitude)
     }
 }
 
@@ -31,13 +29,13 @@ struct MapView: View {
             latitudeDelta: 0.02,
             longitudeDelta: 0.02))
     @State private var isCarousel: Bool = false
-//
-//    let myAroundShopData: [MyAroundShop] = [
-//        MyAroundShop(
-//            shopInfo:
-//                ShopInfo(
-//                    id: "",
-//                    shopAddress: "",
+
+    let myAroundShopData: [MyAroundShop] = [
+        MyAroundShop(
+            shopInfo:
+                ShopInfo(
+                    id: "",
+                    shopAddress: "",
 //                    shopItems: [
 //                        ItemInfo(
 //                            id: "",
@@ -45,20 +43,20 @@ struct MapView: View {
 //                            itemImage: "",
 //                            itemName: "",
 //                            itemPrice: 0,
-//                    shopIntroduction: "",
-//                    shopLocationLatitude: 37.559781,
-//                    shopLocationLontitude: 127.076192,
-//                    shopName: "미들",
+                    shopIntroduction: "",
+                    shopLocationLatitude: 37.559781,
+                    shopLocationLontitude: 127.076192,
+                    shopName: "미들",
 //                    shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
-//                    shopPhoneNumber: "",
-//                    shopSNSLink: ""))
-//
-//    ]
-//
-//    @State private var shopData: ShopInfo =
-//    ShopInfo(
-//        id: "",
-//        shopAddress: "",
+                    shopPhoneNumber: "",
+                            shopSNSLink: ""))
+
+    ]
+
+    @State private var shopData: ShopInfo =
+    ShopInfo(
+        id: "",
+        shopAddress: "",
 //        shopItems: [
 //            ItemInfo(
 //                id: "",
@@ -66,17 +64,16 @@ struct MapView: View {
 //                itemImage: "",
 //                itemName: "",
 //                itemPrice: 0)],
-//        shopIntroduction: "",
-//        shopLocationLatitude: 37.559781,
-//        shopLocationLontitude: 127.076192,
-//        shopName: "",
-//        shopPhoneNumber: "",
-//        shopSNSLink: "")
+        shopIntroduction: "",
+        shopLocationLatitude: 37.559781,
+        shopLocationLontitude: 127.076192,
+        shopName: "",
+        shopPhoneNumber: "",
+        shopSNSLink: "")
     
     @State private var mapViewSearchText: String = ""
     var body: some View {
         NavigationStack {
-            /*
             ZStack {
                 
                 Map(coordinateRegion: $mapViewModel.region,
@@ -128,7 +125,6 @@ struct MapView: View {
                 }
                 .position(x: 354, y: 520)
             }
-        */
         }
         .onAppear{
             mapViewModel.checkLocationIsEnbeld()

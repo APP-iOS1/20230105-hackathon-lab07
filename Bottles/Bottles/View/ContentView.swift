@@ -29,7 +29,6 @@ struct ContentView: View {
                 Image(systemName: "person")
             }.tag(5)
         }
-        
 //        .onAppear {
 //            UITabBar.appearance().backgroundColor = .black
 //        }
