@@ -35,46 +35,50 @@ struct MyPageView: View {
                     VStack(alignment: .leading) {
                         Text("픽업을 기다리고 있어요!")
                             .font(.title2)
-                            .bold()
-                        TabView {
-                            ForEach(1..<4, id: \.self) { _ in
-                                NavigationLink {
-//                                    BottleShopDetailView()
-                                } label: {
-                                    VStack {
-                                        WaitingPickupCell()
-                                        Rectangle()
-                                            .foregroundColor(.white)
-                                            .frame(height: 20)
+                            .fontWeight(.semibold)
+                        
+                        if /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/ {
+                            TabView {
+                                ForEach(1..<4, id: \.self) { _ in
+                                    NavigationLink {
+                                        //                                    BottleShopDetailView()
+                                    } label: {
+                                        VStack {
+                                            WaitingPickupCell()
+                                            Rectangle()
+                                                .foregroundColor(.white)
+                                                .frame(height: 20)
+                                        }
                                     }
                                 }
                             }
+                            .frame(height: 300)
+                            .tabViewStyle(.page)
+                            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                            .padding(.top, -15)
+                        } else {
+                            /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
                         }
-                        .frame(height: 300)
-                        .tabViewStyle(.page)
-                        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     }
                     .padding(.horizontal, 20)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 15)
                     
                     // MARK: - 내가 픽업했던 보틀
                     VStack(alignment:.leading){
                         Text("내가 픽업했던 보틀")
                             .font(.title2)
-                            .bold()
+                            .fontWeight(.semibold)
                         
-                        LazyVGrid(columns: columns,
-                                  alignment: .center,
-                                  spacing: 10) {
-                            ForEach(1 ..< 5, id: \.self) { _ in
-                                PickedUpBottleCell()
-                                
-                            }
+                        
+                        
+                        ForEach(1 ..< 4, id: \.self) { _ in
+                            PickedUpBottleCell()
+                                .padding(.bottom, 5)
+                            
                         }
                     }
-                    .padding(.horizontal, 20)
                 }
-                
+                Spacer()
             }
         }
     }
