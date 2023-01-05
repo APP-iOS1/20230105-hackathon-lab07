@@ -27,6 +27,8 @@
 		0405D4E4296685F1001FE965 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E3296685F1001FE965 /* TempView.swift */; };
 		0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E529668636001FE965 /* UserInfoStore.swift */; };
 		0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E72966865E001FE965 /* ShopInfoStore.swift */; };
+		0405D4EA29669A53001FE965 /* JsonToFirestoreTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */; };
+		046B3AB72966B6F500F6F21D /* csvjson.json in Resources */ = {isa = PBXBuildFile; fileRef = 046B3AB62966B6F400F6F21D /* csvjson.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		0405D4E3296685F1001FE965 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 		0405D4E529668636001FE965 /* UserInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStore.swift; sourceTree = "<group>"; };
 		0405D4E72966865E001FE965 /* ShopInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfoStore.swift; sourceTree = "<group>"; };
+		0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonToFirestoreTestView.swift; sourceTree = "<group>"; };
+		046B3AB62966B6F400F6F21D /* csvjson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = csvjson.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 		0405D49629658293001FE965 /* Bottles */ = {
 			isa = PBXGroup;
 			children = (
+				046B3AB62966B6F400F6F21D /* csvjson.json */,
 				0405D4E2296685D9001FE965 /* View */,
 				0405D4D32965939B001FE965 /* Model */,
 				0405D4D4296593D4001FE965 /* Store */,
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				0405D4E3296685F1001FE965 /* TempView.swift */,
+				0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 			files = (
 				0405D49F29658296001FE965 /* Preview Assets.xcassets in Resources */,
 				0405D4C2296582B8001FE965 /* GoogleService-Info.plist in Resources */,
+				046B3AB72966B6F500F6F21D /* csvjson.json in Resources */,
 				0405D49C29658296001FE965 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +336,7 @@
 				0405D49A29658293001FE965 /* ContentView.swift in Sources */,
 				0405D4D729659449001FE965 /* UserInfo.swift in Sources */,
 				0405D49829658293001FE965 /* BottlesApp.swift in Sources */,
+				0405D4EA29669A53001FE965 /* JsonToFirestoreTestView.swift in Sources */,
 				0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */,
 				0405D4E4296685F1001FE965 /* TempView.swift in Sources */,
 				0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */,

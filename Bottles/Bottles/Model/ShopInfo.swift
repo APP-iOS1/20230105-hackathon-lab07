@@ -11,7 +11,8 @@ import Foundation
 /// - Parameter shopAddress: 샵의 도로명 주소를 나타냅니다.
 /// - Parameter shopItems: 샵의 아이템입니다.
 /// - Parameter shopIntroduction: 사장님이 작성하는 가게의 소개 입니다.
-/// - Parameter shopLocation: 샵의 위도와 경도입니다
+/// - Parameter shopLocationLongtitude: 샵의 경도입니다
+/// - Parameter shopLocationLatitude: 샵의 위도입니다
 /// - Parameter shopName: 샵의 이름입니다
 /// - Parameter shopNoticeBoard: 샵의 공지사항입니다
 /// - Parameter shopPhoneNumber: 샵의 연락처입니다
@@ -22,7 +23,8 @@ struct ShopInfo: Codable, Hashable{
     var shopAddress: String
     var shopItems: [ItemInfo]
     var shopIntroduction: String
-    var shopLocation: Location
+    var shopLocationLatitude: Double
+    var shopLocationLontitude: Double
     var shopName: String
     var shopNoticeBoard: [ShopPost]
     var shopOpenTimes: [OpenTime]
@@ -30,15 +32,6 @@ struct ShopInfo: Codable, Hashable{
     var shopSNSLink: String
 }
 
-// MARK: shop의 위도와 경도를 구조체입니다.
-/// - Parameter latitude: 샵의 위도입니다.
-/// - Parameter longtitude: 샵의 경도입니다.
-struct Location: Codable, Hashable{
-    var id: String = UUID().uuidString
-    
-    var latitude: Double
-    var longtitude: Double
-}
 
 // MARK: shop의 위도와 경도를 구조체입니다.
 /// - Parameter closedTime, openTime: 샵의 개점, 폐점 시간입니다.
@@ -46,8 +39,8 @@ struct Location: Codable, Hashable{
 struct OpenTime: Codable, Hashable{
     var id: String = UUID().uuidString
     
-    var closedTime: Date
-    var openTime: Date
+    var closedTime: String
+    var openTime: String
     
     var isOpened: Bool = true
 }
