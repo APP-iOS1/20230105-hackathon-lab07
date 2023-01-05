@@ -78,9 +78,11 @@ struct MapView: View {
         shopPhoneNumber: "",
         shopSNSLink: "")
     
+    @State private var mapViewSearchText: String = ""
     var body: some View {
         NavigationStack {
             ZStack {
+                
                 Map(coordinateRegion: $mapViewModel.region,
                     showsUserLocation: true, annotationItems: myAroundShopData
                 ) { item in
@@ -91,28 +93,35 @@ struct MapView: View {
                                     isCarousel = true
                                     shopData = item.shopInfo
                                 } label: {
-                                    Image("MapMarker")
-                                    //                                    Text(item.shopInfo.shopName)
-                                    //                                        .padding()
-                                    //                                        .font(.headline)
-                                    //                                        .frame(height: 35)
-                                    //                                        .background(.white)
-                                    //                                        .foregroundColor(.black)
-                                    //                                        .cornerRadius(10)
-                                    //                                        .border(Color("AroundSearchViewColor"))
+                                    VStack{
+                                        Image("MapMarker")
+                                        Text(item.shopInfo.shopName)
+                                            .padding()
+                                            .font(.headline)
+                                            .frame(height: 35)
+                                            .background(.white)
+                                            .foregroundColor(.black)
+                                            .cornerRadius(10)
+                                            .border(Color("AroundSearchViewColor"))
+                                    }
                                 }
                             }
                         }
                     }
                     
                 }
+                
+                SearchBar(searchBarText: $mapViewSearchText)
+                    .offset(y: -330)
+                
                 if isCarousel {
                     NavigationLink {
-                        
+                       BottleShopDetailView()
                     } label: {
-                        MapViewCell(shopInfo: shopData)
+                        MapViewCell()
                     }
-                    .position(x: 197, y: 620)
+                    .position(x: 176, y: 620)
+                    .padding(.horizontal, 20)
                 }
                 Button(action:{
                     mapViewModel.checkLocationIsEnbeld()
@@ -121,7 +130,7 @@ struct MapView: View {
                         .resizable()
                         .frame(width: 40, height: 40)
                 }
-                .position(x: 350, y: 520)
+                .position(x: 354, y: 520)
             }
         }
         .onAppear{

@@ -26,7 +26,7 @@ struct BottleShopBottlesCell: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 25, height: 25)
-                            .foregroundColor(.blue)
+                            .foregroundColor(.white)
                             .offset(x: 60, y: -60)
                             .onTapGesture {
                                 isSelected.toggle()

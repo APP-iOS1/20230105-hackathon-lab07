@@ -31,10 +31,13 @@ struct SearchBar: View {
             }
         }
         .padding(10)
-        .overlay {
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(.gray, lineWidth: 1)
+        .frame(width: 340)
+        
+        .background{
+            Color.white
         }
+        .cornerRadius(10)
+        .shadow(color: Color("BottleShopDetailBGShadowColor"), radius: 3, x: 0, y: 4)
         .padding(.horizontal, 20)
     }
 }
