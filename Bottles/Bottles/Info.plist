@@ -23,6 +23,22 @@
 				<string>com.bottles.Bottles</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>naverlogin</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.106959748218-2o5fbfrhsu1ectqpmcdu4c8248rp07aa</string>
+			</array>
+		</dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>1911059515914402</string>
@@ -35,6 +51,8 @@
         <string>naversearchapp</string>
         <string>naversearchthirdlogin</string>
 		<string>kakaokompassauth</string>
+		<string>naversearchapp</string>
+		<string>naversearchthirdlogin</string>
 		<string>kakaolink</string>
 		<string>fbapi</string>
 		<string>fb-messenger-share-api</string>
