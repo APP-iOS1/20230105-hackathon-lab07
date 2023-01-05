@@ -9,7 +9,8 @@ import SwiftUI
 struct ContentView: View {
     @State var isLoading: Bool = true
     @State private var selection: Int = 1
-    //@1.안은노vironmentObject userInfoStore: UserInfoStore
+
+    //@EnvironmentObject userInfoStore: UserInfoStore
     @EnvironmentObject var shopInfoStore: ShopInfoStore
 
     var body: some View {
@@ -43,22 +44,4 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
-}
-
-extension ContentView {
-
-    var launchScreenView: some View {
-
-        ZStack(alignment: .center) {
-
-            LinearGradient(gradient: Gradient(colors: [Color("PrimaryColor"), Color("SubPrimaryColor")]),
-                            startPoint: .top, endPoint: .bottom)
-            .edgesIgnoringSafeArea(.all)
-
-            Image("LaunchScreenImage")
-
-        }
-
-    }
-
 }
