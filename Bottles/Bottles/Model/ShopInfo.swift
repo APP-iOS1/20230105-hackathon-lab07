@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 // MARK: shop의 정보를 담는 구조체입니다.
 /// - Parameter shopAddress: 샵의 도로명 주소를 나타냅니다.
@@ -15,7 +16,7 @@ import Foundation
 /// - Parameter shopLocationLatitude: 샵의 위도입니다
 /// - Parameter shopPhoneNumber: 샵의 연락처입니다
 /// - Parameter shopSNSLink: 샵의 SNS링크입니다.
-struct ShopInfo: Codable, Hashable{
+struct ShopInfo: Codable, Hashable, Identifiable{
     var id: String = UUID().uuidString
     
     var shopAddress: String
@@ -28,6 +29,10 @@ struct ShopInfo: Codable, Hashable{
     //var shopOpenTimes: [OpenTime]
     var shopPhoneNumber: String
     var shopSNSLink: String
+    
+    var shopCoordinates: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: shopLocationLatitude, longitude: shopLocationLontitude)
+    }
 }
 
 

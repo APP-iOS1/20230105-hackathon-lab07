@@ -20,16 +20,10 @@ struct MyAroundShop: Identifiable {
 struct MapView: View {
     
     @StateObject private var mapViewModel: MapViewModel = MapViewModel()
-    @State private var region: MKCoordinateRegion = MKCoordinateRegion(
-        center:
-            CLLocationCoordinate2D(
-                latitude: 37.559781,
-                longitude: 127.076192),
-        span: MKCoordinateSpan(
-            latitudeDelta: 0.02,
-            longitudeDelta: 0.02))
     @State private var isCarousel: Bool = false
-
+    
+    @EnvironmentObject var shopInfoStore: ShopInfoStore
+    
     let myAroundShopData: [MyAroundShop] = [
         MyAroundShop(
             shopInfo:
@@ -77,18 +71,18 @@ struct MapView: View {
             ZStack {
                 
                 Map(coordinateRegion: $mapViewModel.region,
-                    showsUserLocation: true, annotationItems: myAroundShopData
-                ) { item in
-                    MapAnnotation(coordinate: item.coordinate) {
+                    showsUserLocation: true, annotationItems: shopInfoStore.shopInfos
+                ) { shopInfo in
+                    MapAnnotation(coordinate: shopInfo.shopCoordinates) {
                         VStack {
                             Group {
                                 Button {
                                     isCarousel = true
-                                    shopData = item.shopInfo
+                                    shopData = shopInfo
                                 } label: {
                                     VStack{
                                         Image("MapMarker")
-                                        Text(item.shopInfo.shopName)
+                                        Text(shopInfo.shopName)
                                             .padding()
                                             .font(.headline)
                                             .frame(height: 35)

@@ -12,7 +12,7 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 class ShopInfoStore: ObservableObject{
-    @Published var shopInfos: [ShopInfo]?
+    @Published var shopInfos: [ShopInfo] = []
     
     let database = Firestore.firestore()
     
@@ -27,7 +27,7 @@ class ShopInfoStore: ObservableObject{
                 fetchingResult.append(ShopInfo(id: document.documentID, shopAddress: document["shopAddress"] as! String,  shopIntroduction: document["shopIntroduction"] as! String, shopLocationLatitude: document["latitude"] as! Double, shopLocationLontitude: document["longitude"] as! Double, shopName: document["shopName"] as! String, shopPhoneNumber: document["shopPhoneNumber"] as! String, shopSNSLink: document["shopSNSLink"] as! String))
             }
             self.shopInfos = fetchingResult
-            print("fetchingResult:\(self.shopInfos ?? [])")
+            print("fetchingResult:\(self.shopInfos)")
         }catch{
             print(error)
         }

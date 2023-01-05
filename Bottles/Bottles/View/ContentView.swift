@@ -10,8 +10,14 @@ struct ContentView: View {
     @State var isLoading: Bool = true
     @State private var selection: Int = 1
 
-    //@EnvironmentObject userInfoStore: UserInfoStore
     @EnvironmentObject var shopInfoStore: ShopInfoStore
+//    @EnvironmentObject var itemInfoStore: ItemInfoStore
+    
+
+
+    //@EnvironmentObject userInfoStore: UserInfoStore
+   
+
 
     var body: some View {
         TabView(selection: $selection) {
@@ -34,14 +40,16 @@ struct ContentView: View {
             await shopInfoStore.requestShopInfos()
         }
 
-//        .onAppear {
-//            UITabBar.appearance().backgroundColor = .black
-//        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ShopInfoStore()).environmentObject(ItemInfoStore())
+            
     }
+
+
 }
+
