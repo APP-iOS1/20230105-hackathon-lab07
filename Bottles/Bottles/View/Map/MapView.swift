@@ -29,7 +29,7 @@ struct MapView: View {
             latitudeDelta: 0.02,
             longitudeDelta: 0.02))
     @State private var isCarousel: Bool = false
-    
+        
     let myAroundShopData: [MyAroundShop] = [
         MyAroundShop(
             shopInfo:
@@ -55,8 +55,8 @@ struct MapView: View {
         MyAroundShop(
             shopInfo:
                 ShopInfo(
-                    id: "보틀",
-                    shopAddress: "서울 광진구 면목로7길 25",
+                    id: "",
+                    shopAddress: "",
                     shopItems: [
                         ItemInfo(
                             id: "",
@@ -66,7 +66,7 @@ struct MapView: View {
                             itemPrice: 0, itemTags: [])],
                     shopIntroduction: "",
                     shopLocation: Location(id: "54612312221", latitude: 37.559781, longtitude: 127.076192),
-                    shopName: "보틀",
+                    shopName: "미들",
                     shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
                     shopOpenTimes: [OpenTime(id: "", closedTime: Date(), openTime: Date(), isOpened: false)],
                     shopPhoneNumber: "",
@@ -76,9 +76,27 @@ struct MapView: View {
         
     ]
     
+    @State private var shopData: ShopInfo =
+            ShopInfo(
+                id: "",
+                shopAddress: "",
+                shopItems: [
+                    ItemInfo(
+                        id: "",
+                        itemDescription: "",
+                        itemImage: "",
+                        itemName: "",
+                        itemPrice: 0, itemTags: [])],
+                shopIntroduction: "",
+                shopLocation: Location(id: "54612312221", latitude: 37.559781, longtitude: 127.076192),
+                shopName: "",
+                shopNoticeBoard: [ShopPost(id: "", postContents: "", postDate: Date())],
+                shopOpenTimes: [OpenTime(id: "", closedTime: Date(), openTime: Date(), isOpened: false)],
+                shopPhoneNumber: "",
+                shopSNSLink: "")
+    
     var body: some View {
         NavigationStack {
-            
             ZStack {
                 Map(coordinateRegion: $region,
                     annotationItems: myAroundShopData
@@ -88,15 +106,17 @@ struct MapView: View {
                             Group {
                                 Button {
                                     isCarousel = true
+                                    shopData = item.shopInfo
                                 } label: {
-                                    Text(item.shopInfo.shopName)
-                                        .padding()
-                                        .font(.headline)
-                                        .frame(height: 35)
-                                        .background(.white)
-                                        .foregroundColor(.black)
-                                        .cornerRadius(10)
-                                        .border(Color("AroundSearchViewColor"))
+                                    Image("MapMarker")
+//                                    Text(item.shopInfo.shopName)
+//                                        .padding()
+//                                        .font(.headline)
+//                                        .frame(height: 35)
+//                                        .background(.white)
+//                                        .foregroundColor(.black)
+//                                        .cornerRadius(10)
+//                                        .border(Color("AroundSearchViewColor"))
                                 }
                             }
                         }
@@ -107,7 +127,7 @@ struct MapView: View {
                     NavigationLink {
                         
                     } label: {
-                        //MapViewCell(shopInfo: )
+                        MapViewCell(shopInfo: shopData)
                     }
                     .position(x: 200, y: 600)
                 }
