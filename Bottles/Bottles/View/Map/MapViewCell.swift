@@ -54,19 +54,19 @@ struct MapViewCell: View {
                         }
                         
                         VStack(alignment: .leading){
-                            Text("신미지바보")
+                            Text("\(shopInfo.shopName)")
                                 .font(.headline)
                                 
                                 .multilineTextAlignment(.leading)
                             HStack {
-                                Image(bottleShopInfo[0].iconName)
-                                Text(bottleShopInfo[0].iconContent)
+                                Image("pin")
+                                Text("\(shopInfo.shopAddress)")
                             }
                             .font(.footnote)
                             
                             // 영업시간
                             HStack {
-                                Image(bottleShopInfo[1].iconName)
+                                Image("clock")
                                 Text(bottleShopInfo[1].operationTime)
                                     .foregroundColor(.purple)
                                     .bold()
@@ -77,8 +77,8 @@ struct MapViewCell: View {
                             
                             // 전화번호
                             HStack {
-                                Image(bottleShopInfo[2].iconName)
-                                Text(bottleShopInfo[2].iconContent)
+                                Image("phone")
+                                Text("\(shopInfo.shopPhoneNumber)")
                             }
                             .font(.footnote)
                             

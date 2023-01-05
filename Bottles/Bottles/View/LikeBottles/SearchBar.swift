@@ -11,10 +11,13 @@ struct SearchBar: View {
     
     @Binding var searchBarText: String
     
+    
     var body: some View {
+        
         
         // MARK: - SearchBar
         HStack {
+            
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.accentColor)
                 .bold()

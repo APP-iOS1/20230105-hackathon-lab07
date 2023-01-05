@@ -8,8 +8,13 @@
 import Foundation
 import MapKit
 
+
+enum MapDetails {
+    static let startingLocation = CLLocationCoordinate2D(latitude: 37.559781, longitude: 127.076192)
+    static let defaultSpan =  MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+}
 class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.559781, longitude: 127.076192), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+    @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
     
     var locationManager: CLLocationManager?
     
@@ -38,6 +43,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             print("You have denied this app location permission. Go into settings to change it.")
         case .authorizedAlways, .authorizedWhenInUse:
             region = MKCoordinateRegion(center: locationManager.location!.coordinate,  span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+            break
         @unknown default:
             break
         }
