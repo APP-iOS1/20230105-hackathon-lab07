@@ -42,8 +42,8 @@ struct BottleShopBottlesCell: View {
     }
 }
 
-struct BottleShopBottlesCell_Previews: PreviewProvider {
-    static var previews: some View {
-        BottleShopBottlesCell(itemInfo: ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: "", itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemDegree: ""))
-    }
-}
+//struct BottleShopBottlesCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BottleShopBottlesCell(itemInfo: ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: , itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemDegree: ""))
+//    }
+//}

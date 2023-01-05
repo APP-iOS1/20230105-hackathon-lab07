@@ -30,7 +30,7 @@ struct MapViewCell: View {
             operationTime: "",
             iconContent: "바틀샵 Middle Bottle입니다. 열심히 고른 국내/해외 맥주와 와인을 판매합니다.")
     ]
-//    var shopInfo: ShopInfo
+    var shopInfo: ShopInfo
     var body: some View {
         VStack{
             RoundedRectangle(cornerRadius: 10)
@@ -93,8 +93,8 @@ struct MapViewCell: View {
     }
 }
 
-struct MapViewCell_Previews: PreviewProvider {
-    static var previews: some View {
-        MapViewCell()
-    }
-}
+//struct MapViewCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MapViewCell()
+//    }
+//}

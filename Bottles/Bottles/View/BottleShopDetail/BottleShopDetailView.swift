@@ -120,7 +120,7 @@ struct BottleShopDetailView: View {
                         LazyVGrid(columns: columns) {
                             ForEach(itemInfoStore.itemInfos ?? [], id: \.self) { item in
                                 NavigationLink {
-//                                    BottleDetailView(bottle: item)
+                                    BottleDetailView(bottle: item)
                                 } label: {
                                     BottleShopBottlesCell(itemInfo: item)
                                 }

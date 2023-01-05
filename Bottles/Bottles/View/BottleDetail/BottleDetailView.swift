@@ -166,8 +166,8 @@ struct BottleDetailView: View {
 }
 
 
-struct BottleDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        BottleDetailView(bottle: ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: "", itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemDegree: ""))
-    }
-}
+//struct BottleDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BottleDetailView(bottle: ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: "", itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemDegree: ""))
+//    }
+//}

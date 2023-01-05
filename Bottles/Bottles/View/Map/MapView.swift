@@ -103,9 +103,9 @@ struct MapView: View {
                 
                 if isCarousel {
                     NavigationLink {
-//                       BottleShopDetailView()
+                        BottleShopDetailView(shopInfo: shopData)
                     } label: {
-                        MapViewCell()
+                        MapViewCell(shopInfo: shopData)
                     }
                     .position(x: 176, y: 620)
                     .padding(.horizontal, 20)

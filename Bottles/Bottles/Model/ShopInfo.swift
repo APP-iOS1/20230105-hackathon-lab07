@@ -74,7 +74,7 @@ struct ItemInfo: Codable, Hashable{
     var itemPrice: Int
     //var itemTags: [String]
     
-    var itemML: String
+    var itemML: Int
     var itemNation: String
     var itemProducer: String
     
