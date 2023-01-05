@@ -27,6 +27,9 @@
 		0405D4E4296685F1001FE965 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E3296685F1001FE965 /* TempView.swift */; };
 		0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E529668636001FE965 /* UserInfoStore.swift */; };
 		0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E72966865E001FE965 /* ShopInfoStore.swift */; };
+		271F1C792966A41C00FCE981 /* LikeBottleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C782966A41C00FCE981 /* LikeBottleView.swift */; };
+		271F1C7C2966A80600FCE981 /* LikeBottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C7B2966A80600FCE981 /* LikeBottleCell.swift */; };
+		271F1C802966BC5D00FCE981 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F1C7F2966BC5D00FCE981 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		0405D4E3296685F1001FE965 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 		0405D4E529668636001FE965 /* UserInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStore.swift; sourceTree = "<group>"; };
 		0405D4E72966865E001FE965 /* ShopInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfoStore.swift; sourceTree = "<group>"; };
+		271F1C782966A41C00FCE981 /* LikeBottleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBottleView.swift; sourceTree = "<group>"; };
+		271F1C7B2966A80600FCE981 /* LikeBottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBottleCell.swift; sourceTree = "<group>"; };
+		271F1C7F2966BC5D00FCE981 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,8 +185,19 @@
 			isa = PBXGroup;
 			children = (
 				0405D4E3296685F1001FE965 /* TempView.swift */,
+				271F1C7A2966A48900FCE981 /* LikeBottles */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		271F1C7A2966A48900FCE981 /* LikeBottles */ = {
+			isa = PBXGroup;
+			children = (
+				271F1C782966A41C00FCE981 /* LikeBottleView.swift */,
+				271F1C7B2966A80600FCE981 /* LikeBottleCell.swift */,
+				271F1C7F2966BC5D00FCE981 /* SearchBar.swift */,
+			);
+			path = LikeBottles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,10 +344,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0405D49A29658293001FE965 /* ContentView.swift in Sources */,
+				271F1C792966A41C00FCE981 /* LikeBottleView.swift in Sources */,
+				271F1C7C2966A80600FCE981 /* LikeBottleCell.swift in Sources */,
 				0405D4D729659449001FE965 /* UserInfo.swift in Sources */,
 				0405D49829658293001FE965 /* BottlesApp.swift in Sources */,
 				0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */,
 				0405D4E4296685F1001FE965 /* TempView.swift in Sources */,
+				271F1C802966BC5D00FCE981 /* SearchBar.swift in Sources */,
 				0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */,
 				0405D4D929659466001FE965 /* ShopInfo.swift in Sources */,
 			);
