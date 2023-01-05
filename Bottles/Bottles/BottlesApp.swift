@@ -8,12 +8,15 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 import FirebaseCore
+import FirebaseAuth
 //카카오 로그인 SDK
 import KakaoSDKCommon
 import KakaoSDKAuth
 //네이버 로그인 SDK
 import NaverThirdPartyLogin
+import GoogleSignIn
 
 
 
@@ -26,48 +29,37 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         return true
     }
     
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        return GIDSignIn.sharedInstance.handle(url)
+//    }
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any])
+      -> Bool {
+      return GIDSignIn.sharedInstance.handle(url)
+    }
+    
+    
 }
+
 
 @main
 struct BottlesApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+//    @AppStorage("signIn") var isSignIn = false
     
     init() {
+        
         // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: "ac25d3be6ae489fcd49a88acc57f8cf4")
         
-        //        // Naver SDK Initializing
-        //
-        //        // 네이버 앱으로 로그인 허용
-        //        NaverThirdPartyLoginConnection.getSharedInstance()?.isNaverAppOauthEnable = true
-        //        // 브라우저 로그인 허용
-        //        NaverThirdPartyLoginConnection.getSharedInstance()?.isInAppOauthEnable = true
-        //
-        //        // 네이버 로그인 세로모드 고정
-        //        NaverThirdPartyLoginConnection.getSharedInstance().setOnlyPortraitSupportInIphone(true)
-        //
-        //        // NaverThirdPartyConstantsForApp.h에 선언한 상수 등록
-        //        NaverThirdPartyLoginConnection.getSharedInstance().serviceUrlScheme = kServiceAppUrlScheme
-        //        NaverThirdPartyLoginConnection.getSharedInstance().consumerKey = kConsumerKey
-        //        NaverThirdPartyLoginConnection.getSharedInstance().consumerSecret = kConsumerSecret
-        //        NaverThirdPartyLoginConnection.getSharedInstance().appName = kServiceAppName
     }
     
     var body: some Scene {
         WindowGroup {
             LoginView()
-            //                .onOpenURL { url in
-            //                if (NaverThirdPartyLoginConnection
-            //                    .getSharedInstance() != nil)
-            ////                        .isNaverThirdPartyLoginAppschemeURL(url)
-            //                {
-            //                    // Token 발급 요청
-            //                    NaverThirdPartyLoginConnection
-            //                        .getSharedInstance()
-            //                        .receiveAccessToken(url)
-            //                }
-            //    }
-            
         }
     }
 }
+
