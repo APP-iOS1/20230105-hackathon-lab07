@@ -10,13 +10,34 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakaoac25d3be6ae489fcd49a88acc57f8cf4</string>
+				<string>fb1911059515914402</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>naverlogin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.bottles.Bottles</string>
 			</array>
 		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>1911059515914402</string>
+	<key>FacebookClientToken</key>
+	<string>C8ec71c0c7733ee4a2635e1d651e6aef9</string>
+	<key>FacebookDisplayName</key>
+	<string>Bottles</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+        <string>naversearchapp</string>
+        <string>naversearchthirdlogin</string>
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
 	</array>
 </dict>
 </plist>
