@@ -24,6 +24,9 @@
 		0405D4D12965838A001FE965 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0405D4D02965838A001FE965 /* FirebaseFirestoreSwift */; };
 		0405D4D729659449001FE965 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4D629659449001FE965 /* UserInfo.swift */; };
 		0405D4D929659466001FE965 /* ShopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4D829659466001FE965 /* ShopInfo.swift */; };
+		0405D4E4296685F1001FE965 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E3296685F1001FE965 /* TempView.swift */; };
+		0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E529668636001FE965 /* UserInfoStore.swift */; };
+		0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E72966865E001FE965 /* ShopInfoStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		0405D4C1296582B8001FE965 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0405D4D629659449001FE965 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		0405D4D829659466001FE965 /* ShopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfo.swift; sourceTree = "<group>"; };
+		0405D4E3296685F1001FE965 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
+		0405D4E529668636001FE965 /* UserInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStore.swift; sourceTree = "<group>"; };
+		0405D4E72966865E001FE965 /* ShopInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfoStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,7 @@
 		0405D49629658293001FE965 /* Bottles */ = {
 			isa = PBXGroup;
 			children = (
+				0405D4E2296685D9001FE965 /* View */,
 				0405D4D32965939B001FE965 /* Model */,
 				0405D4D4296593D4001FE965 /* Store */,
 				0405D4C1296582B8001FE965 /* GoogleService-Info.plist */,
@@ -162,8 +169,18 @@
 		0405D4D4296593D4001FE965 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				0405D4E529668636001FE965 /* UserInfoStore.swift */,
+				0405D4E72966865E001FE965 /* ShopInfoStore.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		0405D4E2296685D9001FE965 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0405D4E3296685F1001FE965 /* TempView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +329,9 @@
 				0405D49A29658293001FE965 /* ContentView.swift in Sources */,
 				0405D4D729659449001FE965 /* UserInfo.swift in Sources */,
 				0405D49829658293001FE965 /* BottlesApp.swift in Sources */,
+				0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */,
+				0405D4E4296685F1001FE965 /* TempView.swift in Sources */,
+				0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */,
 				0405D4D929659466001FE965 /* ShopInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
