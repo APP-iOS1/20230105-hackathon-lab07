@@ -47,15 +47,11 @@ struct PickedUpBottleCell: View {
             .padding()
             .padding(.leading, -20)
             .frame(alignment: .leading)
-            
-            
         }
         .padding(.horizontal, 5)
         .overlay {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color(UIColor.systemGray4), lineWidth: 1)
-            
-            
         }
     }
 }

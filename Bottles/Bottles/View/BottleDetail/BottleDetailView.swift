@@ -63,9 +63,7 @@ struct BottleDetailView: View {
                                 .font(.system(size: 18))
                                 .frame(alignment: .trailing)
                         }
-                        
                     }
-                    
                 }
                 
                 Divider()

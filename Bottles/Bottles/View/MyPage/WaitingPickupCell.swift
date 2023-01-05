@@ -39,7 +39,6 @@ struct WaitingPickupCell: View {
                     }
                     .padding(.bottom, 0.1)
                     
-                    
                     HStack{
                         Text("로얄 살루트")
                             .font(.subheadline)

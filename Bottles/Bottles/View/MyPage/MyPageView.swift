@@ -24,8 +24,6 @@ struct MyPageView: View {
                         NavigationLink(destination: EditUserInfoView()) {
                             Text("회원정보 수정")
                         }
-                        
-                        
                     }
                     .padding(20)
                     
@@ -69,12 +67,9 @@ struct MyPageView: View {
                             .font(.title2)
                             .fontWeight(.semibold)
                         
-                        
-                        
                         ForEach(1 ..< 4, id: \.self) { _ in
                             PickedUpBottleCell()
                                 .padding(.bottom, 5)
-                            
                         }
                     }
                 }
