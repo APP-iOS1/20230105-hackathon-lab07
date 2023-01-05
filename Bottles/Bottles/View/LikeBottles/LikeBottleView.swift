@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LikeBottleView: View {
-    
+    @EnvironmentObject var userInfoStore: UserInfoStore
     @State private var searchBarText: String = ""
     @State private var filterType: String = ""
     let columns: [GridItem] = [
@@ -74,6 +74,8 @@ struct LikeBottleView: View {
             .refreshable {
                 //
             }
+        }.task{
+            await userInfoStore.requestUserLikes()
         }
     }
 }
