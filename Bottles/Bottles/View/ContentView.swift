@@ -41,7 +41,7 @@ struct ContentView: View {
         }.task{
             await shopInfoStore.requestShopInfos()
             print("\(authStore.userEmail)")
-            
+            await userInfoStore.requestUserInfo(userEmail: authStore.userEmail)
         }
         
     }
