@@ -65,7 +65,7 @@ struct LikeBottleView: View {
                         content: {
                             ForEach(userInfoStore.userInfo.userFavoriteBottles, id:\.self) { favoriteItemInfoPair in
                                 NavigationLink {
-                                    BottleDetailView(bottle: itemInfoStore.likeItemInfos?.filter{$0.id == favoriteItemInfoPair.itemId}.first ?? ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: 0, itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemDegree: ""))
+                                    BottleDetailView(bottle: itemInfoStore.likeItemInfos?.filter{$0.id == favoriteItemInfoPair.itemId}.first ?? ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: 0, itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemAbv: "", itemDegree: ""))
                                 } label: {
                                     LikeBottleCell(shopId: favoriteItemInfoPair.shopId, itemId: favoriteItemInfoPair.itemId)
 

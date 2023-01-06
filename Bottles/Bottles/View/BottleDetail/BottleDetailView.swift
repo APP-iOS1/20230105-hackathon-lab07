@@ -92,7 +92,7 @@ struct BottleDetailView: View {
                     HStack {
                         Text("용량")
                         Divider()
-                        Text("\(bottle.itemML)")
+                        Text("\(bottle.itemML)mL")
                     }
                     HStack {
                         Text("국가")
