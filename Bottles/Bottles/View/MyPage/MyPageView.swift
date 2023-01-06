@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyPageView: View {
+    @EnvironmentObject var userInfo: UserInfo
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 10, alignment: nil),
         GridItem(.flexible(), spacing: 10, alignment: nil)
@@ -18,7 +19,7 @@ struct MyPageView: View {
             ScrollView {
                 VStack {
                     HStack{
-                        Text("강창현님")
+                        Text(userInfo.userNickName)
                             .font(.title)
                         Spacer()
                         NavigationLink(destination: EditUserInfoView()) {
