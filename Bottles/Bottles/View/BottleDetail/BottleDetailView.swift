@@ -91,7 +91,7 @@ struct BottleDetailView: View {
                     HStack {
                         Text("도수")
                         Divider()
-                        Text(bottle.itemDegree == "" ? "12.5" : bottle.itemDegree)
+                        Text(bottle.itemAbv == "" ? "12.5" : bottle.itemAbv)
                     }
                     
                     HStack {

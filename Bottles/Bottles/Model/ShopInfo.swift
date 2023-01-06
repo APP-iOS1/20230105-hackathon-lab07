@@ -87,7 +87,7 @@ struct ItemInfo: Codable, Hashable{
     var itemUse: String
     var itemType: String
     var itemYear: Int
-    
+    var itemAbv: String
     var itemDegree: String
     
     //var itemSimilar: [String]
