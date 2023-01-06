@@ -34,7 +34,7 @@ struct MapViewSearchBar: View {
             }
         }
         .padding(10)
-        .frame(width: 270)
+        .frame(width: 290)
         
         .background{
             Color.white

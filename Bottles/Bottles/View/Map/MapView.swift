@@ -122,11 +122,13 @@ struct MapView: View {
                         Text("검색")
                             .foregroundColor(.white)
                     }
+                    
                     .frame(width: 50, height: 40)
                     .background(Color.mainColor)
                     .cornerRadius(10)
+                    .padding(.leading, -20)
                 }
-                .offset(y: -330)
+                .offset(y: -305)
 
                     
                     
@@ -157,13 +159,19 @@ struct MapView: View {
                     distancefilter.toggle()
                     searchResult = getSearchResult(searchText: mapViewSearchText)
                 }) {
-                    Text("내 주변 5km")
-//                    Image("gps_Image")
-//                        .resizable()
-//                        .frame(width: 40, height: 40)
+                    ZStack{
+                        Circle()
+                            .foregroundColor(.white)
+                            .frame(width: 40, height: 40)
+                        Image(systemName: "5.circle")
+                            .font(.title3)
+                    }
+                        
+
                 }
-                .position(x: 354, y: 420)
+                .position(x: 354, y: 470)
             }
+            .edgesIgnoringSafeArea(.top)
         }
         .task {
             await shopInfoStore.requestShopInfos()
