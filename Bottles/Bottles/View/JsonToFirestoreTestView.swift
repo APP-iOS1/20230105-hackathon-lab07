@@ -19,7 +19,7 @@ struct JsonToFirestoreTestView: View {
                 self.ids = await help1()
                 //await help2(ids: self.ids, jsonResult: self.jsonResult)
                 //await help3(ids: self.ids)
-                //await help4(ids: self.ids)
+                await help4()
             }
     }
 }
@@ -104,8 +104,8 @@ func help3(ids: [String]) async{
             let shuffledOpenTimes = openTimes.shuffled()
             let doc =  database.collection("Test").document(nowId).collection("openTimes").document()
             try await doc.setData(["openingTimes" : [],
-                         "closedTimes" : [],
-                         "isOpenedDatas" : []])
+                                   "closedTimes" : [],
+                                   "isOpenedDatas" : []])
             
             for day in shuffledOpenTimes{
                 try await doc.updateData([
@@ -115,14 +115,52 @@ func help3(ids: [String]) async{
                 ])
                 /*
                  doc.setData(["openTime" : day.openTime,
-                                        "closedTime" : day.closedTime,
-                                        "isOpened" : day.isOpened], merge: true)*/
+                 "closedTime" : day.closedTime,
+                 "isOpened" : day.isOpened], merge: true)*/
             }
             
             
         }
     }catch{
         print(error.localizedDescription)
+    }
+}
+
+//User 데이터베이스에다가
+//email이라는 documentID를 가진 애에 대해
+//likeShapID, likeBottleID의 콤마로 구분된 값들을 넣어주어야 한다.
+//나중에 User가 좋아하는 데이터 불러올 때는 String parsing 해서 갖고 있기.
+func help4() async{
+    let emailList = ["dksdmssh1212@naver.com", "hyem0127@gmail.com",
+                     "shinn.mizzz@gmail.com", "youngddo913@icloud.com", "wkdwhdghks97@gmail.com", "123esd123@naver.com", "hgbs117@gmail.com",
+    "l1004ga@gmail.com"]
+    let likeList:[String] = ["0U3L4WfYMspBaRlyeOkf,P1lcoZUymU2KgpO1Lo2S",
+                    "0U3L4WfYMspBaRlyeOkf,DLNsyZLUqZCHx3mVPo5o",
+                    "0U3L4WfYMspBaRlyeOkf,Fizu9UNRxzhyWR61LOd3",
+                    "0U3L4WfYMspBaRlyeOkf,P1lcoZUymU2KgpO1Lo2S",
+                    "0U3L4WfYMspBaRlyeOkf,UIWHVW9jiyOpg7l5Qa0T",
+                    "0U3L4WfYMspBaRlyeOkf,Vq1SZtOkd4kn5ZlvQlGe",
+                    "0U3L4WfYMspBaRlyeOkf,dZ7ywer81S4mYEGy2E0v",
+    "4Q8NvdwUR3WrjUFB4R9T,BNiYcIR0S5DtqDvkuWA6",
+    "4Q8NvdwUR3WrjUFB4R9T,YlGznastBlGLsnKp39dq",
+    "4Q8NvdwUR3WrjUFB4R9T,cvtmPojREIbqMxGJGqkj",
+    "68jVYbascurnPPaTMmRe,Zqadqnvt70Jb24MqyDBe",
+                             "68jVYbascurnPPaTMmRe,hoX6gCql8ckcUiMejfnR","68jVYbascurnPPaTMmRe,OvMg5CH4Z4MLOnF7A9Ii"]
+    
+    let database = Firestore.firestore()
+    do{
+        
+        for email in emailList{
+            let tempLikeList:[String] = Array(likeList.shuffled().prefix(Int(arc4random()) % likeList.count))
+            try await
+            database.collection("User").document(email).setData(["likeList" : tempLikeList])
+        }
+        
+        
+        
+    }
+    catch{
+        print(error)
     }
 }
 struct JsonToFirestoreTestView_Previews: PreviewProvider {

@@ -23,7 +23,7 @@ struct BottlesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainLoadingView()
+            JsonToFirestoreTestView()
             .environmentObject(ItemInfoStore())
             .environmentObject(ShopInfoStore())
             .environmentObject(UserInfoStore())

@@ -9,9 +9,15 @@ import SwiftUI
 struct ContentView: View {
     @State var isLoading: Bool = true
     @State private var selection: Int = 1
+<<<<<<< Updated upstream
 
     @EnvironmentObject var shopInfoStore: ShopInfoStore
 //    @EnvironmentObject var itemInfoStore: ItemInfoStore
+=======
+    //@EnvironmentObject userInfoStore: UserInfoStore
+    @EnvironmentObject var shopInfoStore: ShopInfoStore
+    @EnvironmentObject var itemInfoStore: ItemInfoStore
+>>>>>>> Stashed changes
     
 
 
