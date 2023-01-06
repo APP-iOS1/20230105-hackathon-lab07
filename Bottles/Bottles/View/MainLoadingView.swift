@@ -9,17 +9,23 @@ import SwiftUI
 
 struct MainLoadingView: View {
     @State private var isActive = false
+    @State private var isloading = true
     var body: some View {
         if isActive {
             RouteView()
-//            ContentView()
+            //            ContentView()
         } else {
-            ZStack {
-                Image("appLogo")
-            }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                    self.isActive = true
+            if isloading {
+                ZStack {
+                    Image("bottlesLogo").transition(.opacity).zIndex(1)
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        withAnimation {
+                            self.isActive = true
+                            self.isloading.toggle()
+                        }
+                    }
                 }
             }
         }

@@ -29,9 +29,9 @@ struct LikeBottleView: View {
                     Text("Favorites")
                         .font(.title)
                         .bold()
-//                    Image("appLogo")
-//                        .resizable()
-//                        .frame(width: 150, height: 50)
+                    //                    Image("appLogo")
+                    //                        .resizable()
+                    //                        .frame(width: 150, height: 50)
                     Spacer()
                     
                     // MARK: - 정렬 Menu
@@ -58,14 +58,16 @@ struct LikeBottleView: View {
                     Spacer()
                     VStack{
                         Image(systemName: "wineglass.fill")
-                            .font(.system(size:30))
-                        Text("아직 좋아요를 누르신 바틀이 없네요! 마음에 드는 바틀을 추가해보세요!")
+                            .font(.system(size:70))
+                            .padding(.bottom)
+                        Text("아직 좋아요를 누르신 바틀이 없네요! \n 마음에 드는 바틀을 추가해보세요!")
                             .font(.subheadline)
                             .bold()
                         
                     }
                     Spacer()
-                }else{
+                }
+                else{
                     // MARK: - GridView
                     ScrollView {
                         LazyVGrid(
@@ -80,15 +82,14 @@ struct LikeBottleView: View {
                                         BottleDetailView(bottle: itemInfoStore.likeItemInfos?.filter{$0.id == favoriteItemInfoPair.itemId}.first ?? ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: 0, itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemAbv: "", itemDegree: ""))
                                     } label: {
                                         LikeBottleCell(shopId: favoriteItemInfoPair.shopId, itemId: favoriteItemInfoPair.itemId)
-
                                     }
+                                    
                                 }
-                            })
-                        .padding(.top, 5)
-                        .padding(.horizontal, 20)
-                    }
+                            }
+                        )}
+                    .padding(.top, 5)
+                    .padding(.horizontal, 20)
                 }
-                
             }
             .refreshable {
                 //
