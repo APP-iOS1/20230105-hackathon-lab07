@@ -10,59 +10,53 @@ import SwiftUI
 struct BottleDetailView: View {
     
     @EnvironmentObject var itemInfoStore: ItemInfoStore
-    @State var isSelected: Bool = true
+    @State var isSelected: Bool = false
     var bottle: ItemInfo
     
     var body: some View {
         ScrollView {
             VStack {
-                VStack {
-                    // 상품 이미지
-                    ZStack {
-                        AsyncImage(
-                            url: URL(string: String(bottle.itemImage)),
-                            content: { image in
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 250, height: 250)
-                                    .padding(.bottom, 15)
-                            },
-                            placeholder: {
-                                ProgressView()
-                            }
-                        )
-                        
-                        // 하트 이미지
-                        .overlay(
-                            Image(systemName: isSelected ? "heart.fill" : "heart")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 25, height: 25)
-                                .offset(x: 160, y: -120)
-                                .foregroundColor(.accentColor)
-                                .onTapGesture {
-                                    isSelected.toggle()
-                                }
-                        )
+                
+                // 상품 이미지
+                AsyncImage(
+                    url: URL(string: String(bottle.itemImage)),
+                    content: { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 250, height: 250)
+                            .padding(.bottom, 15)
+                    },
+                    placeholder: {
+                        ProgressView()
                     }
+                )
+                
+                // 하트 이미지
+                .overlay(
+                    Image(systemName: isSelected ? "heart.fill" : "heart")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .offset(x: 160, y: -120)
+                        .foregroundColor(.accentColor)
+                        .onTapGesture {
+                            isSelected.toggle()
+                        }
+                )
+                
+                // 상품 이름, 가격, 정보
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(bottle.itemName)
+                        .font(.title2)
+                        .frame(alignment: .leading)
+                        .bold()
                     
-                    // 상품 이름, 가격, 정보
-                    VStack(alignment: .leading, spacing: 17) {
-                        HStack{
-                            Text(bottle.itemName)
-                                .font(.system(size: 22))
-                                .frame(alignment: .leading)
-                                .bold()
-                        }
-                        
-                        HStack{
-                            Spacer()
-                            Spacer()
-                            Text("₩ \(bottle.itemPrice)")
-                                .font(.system(size: 18))
-                                .frame(alignment: .trailing)
-                        }
+                    HStack {
+                        Spacer()
+                        Text("₩ \(bottle.itemPrice)")
+                            .font(.system(size: 18))
+                            .frame(alignment: .trailing)
                     }
                 }
                 
@@ -71,47 +65,40 @@ struct BottleDetailView: View {
                     .padding(.bottom, 10)
                 
                 // 상품 소개
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 15) {
                     Text("Information")
-                        .font(.system(size: 20))
+                        .font(.title3)
                         .bold()
-                    
                     HStack {
                         Text("종류")
                         Divider()
                         Text(bottle.itemType)
                     }
-                    
                     HStack {
                         Text("용도")
                         Divider()
                         Text("\(bottle.itemUse)")
                     }
-                    
                     HStack {
                         Text("도수")
                         Divider()
                         Text(bottle.itemAbv == "" ? "12.5" : bottle.itemAbv)
                     }
-                    
                     HStack {
                         Text("음용온도")
                         Divider()
                         Text("\(bottle.itemDegree == "" ? "9~11" : bottle.itemDegree)°C")
                     }
-                    
                     HStack {
                         Text("용량")
                         Divider()
                         Text("\(bottle.itemML)")
                     }
-                    
                     HStack {
                         Text("국가")
                         Divider()
                         Text("\(bottle.itemNation)  >  \(bottle.itemLocal1)")
                     }
-                    
                     HStack {
                         Text("연도")
                         Divider()
@@ -125,9 +112,9 @@ struct BottleDetailView: View {
                     .padding(.bottom, 10)
                 
                 // 상품 tasting notes
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 15) {
                     Text("Tasting Notes")
-                        .font(.system(size: 20))
+                        .font(.title3)
                         .bold()
                     HStack {
                         Text("Aroma")
@@ -143,7 +130,6 @@ struct BottleDetailView: View {
                         Text("Finish")
                             .frame(width: 50)
                         Text("토스트, 길고 달콤한 피니쉬")
-                        
                         Spacer()
                     }
                 }
@@ -164,15 +150,15 @@ struct BottleDetailView: View {
             }
             .padding(20)
         }
-        .task{
+        .task {
             await itemInfoStore.requestItemInfos(shopId: bottle.id)
         }
     }
 }
 
 
-//struct BottleDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BottleDetailView(bottle: ItemInfo(id: "123123", itemImage: "https://media.discordapp.net/attachments/1013996253283106876/1060431379525017680/036.png", itemName: "123123123123123123123123123123123123", itemPrice: 1, itemML: 1, itemNation: "123123", itemProducer: "12312331", itemLocal1: "123123123", itemLocal2: "", itemLocal3: "123123123", itemVarities: "123123123", itemUse: "123123123", itemType: "123123123", itemYear: 1, itemDegree: "123123123")).environmentObject(ItemInfoStore())
-//    }
-//}
+struct BottleDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        BottleDetailView(bottle: ItemInfo(id: "123123", itemImage: "https://seoulwine.net/data/2022/07/28/20220728190640.jpg", itemName: "Meo Camuzet, Charmes Chambertin", itemPrice: 1742000, itemML: 750, itemNation: "프랑스 France", itemProducer: "도멘 메오 까뮈제 Domaine Meo Camuzet", itemLocal1: "부르고뉴 Bourgogne", itemLocal2: "꼬뜨 드 뉘 Cote de Nuits", itemLocal3: "쥬브레-샹베르땅 Gevrey-Chambertin", itemVarities: "Cabernet Sauvignon, Malbec, Petit Verdot,", itemUse: "Table", itemType: "Red", itemYear: 2002, itemAbv: "14~15", itemDegree: "16~18")).environmentObject(ItemInfoStore())
+    }
+}
