@@ -1,31 +1,31 @@
 //
-//  SearchBar.swift
+//  MapViewSearchBar.swift
 //  Bottles
 //
-//  Created by 강창현 on 2023/01/05.
+//  Created by BOMBSGIE on 2023/01/06.
 //
 
 import SwiftUI
 
-struct SearchBar: View {
+struct MapViewSearchBar: View {
+    @EnvironmentObject var shopInfoStore: ShopInfoStore
     
-    @Binding var searchBarText: String
-    
+    @Binding var mapSearchBarText: String
+
+    @Binding var searchResult: [ShopInfo]
     
     var body: some View {
-        
-        
-        // MARK: - SearchBar
         HStack {
             
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.accentColor)
                 .bold()
-            TextField("검색어를 입력해주세요", text: $searchBarText)
+            TextField("검색어를 입력해주세요", text: $mapSearchBarText)
                 .multilineTextAlignment(.center)
-            if !searchBarText.isEmpty {
+            if !mapSearchBarText.isEmpty {
                 Button(action: {
-                    self.searchBarText = ""
+                    searchResult = shopInfoStore.shopInfos
+                    self.mapSearchBarText = ""
                 }) {
                     Image(systemName: "xmark.circle.fill")
                 }
@@ -34,7 +34,7 @@ struct SearchBar: View {
             }
         }
         .padding(10)
-        .frame(width: 340)
+        .frame(width: 290)
         
         .background{
             Color.white
@@ -45,8 +45,8 @@ struct SearchBar: View {
     }
 }
 
-struct SearchBar_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchBar(searchBarText: .constant(""))
-    }
-}
+//struct MapViewSearchBar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MapViewSearchBar(mapSearchBarText: .constant(""))
+//    }
+//}

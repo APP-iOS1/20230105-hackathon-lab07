@@ -18,26 +18,36 @@ struct BottleShopBottlesCell: View {
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 160)
+                            .frame(width: 170, height: 150)
                     } placeholder: {
-                        ProgressView()
+                        Image("ready_image")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 170, height: 150)
+//                        Rectangle()
+//                            .frame(width: 170, height: 150)
+//                            .foregroundColor(.gray)
                     }
                     .overlay(
                         Image(systemName: isSelected ? "heart.fill" : "heart")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 25, height: 25)
-                            .foregroundColor(.white)
-                            .offset(x: 60, y: -60)
+                            .foregroundColor(.mainColor)
+                            .offset(x: 63, y: -55)
                             .onTapGesture {
                                 isSelected.toggle()
                             })
             }
             Text(itemInfo.itemName)
+                .font(.title3)
+                .lineLimit(2)
                 .bold()
             Text("\(itemInfo.itemPrice)")
+                .font(.subheadline)
                 .bold()
         }
+        .multilineTextAlignment(.leading)
         .foregroundColor(.black)
     }
 }

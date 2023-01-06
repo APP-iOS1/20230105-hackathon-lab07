@@ -26,9 +26,12 @@ struct LikeBottleView: View {
                 SearchBar(searchBarText: $searchBarText)
                 
                 HStack {
-                    Text("Bottles")
-                        .font(.title)
-                        .bold()
+//                    Text("Bottles")
+//                        .font(.title)
+//                        .bold()
+                    Image("appLogo")
+                        .resizable()
+                        .frame(width: 150, height: 50)
                     Spacer()
                     
                     // MARK: - 정렬 Menu

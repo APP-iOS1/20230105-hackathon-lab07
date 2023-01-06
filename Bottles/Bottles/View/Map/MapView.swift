@@ -24,6 +24,7 @@ struct MapView: View {
     
     @EnvironmentObject var shopInfoStore: ShopInfoStore
     
+//    @State var mapRegion =
     let myAroundShopData: [MyAroundShop] = [
         MyAroundShop(
             shopInfo:
@@ -65,15 +66,31 @@ struct MapView: View {
         shopPhoneNumber: "",
         shopSNSLink: "")
     
+    // 바틀샵 이름 검색 기능
+//    var searchResult: [ShopInfo] {
+//        let filteredData = shopInfoStore.shopInfos
+//
+//        if !mapViewSearchText.isEmpty {
+//            return filteredData.filter {
+//                $0.shopName.contains(mapViewSearchText)
+//            }
+//        }
+//        return filteredData
+//    }
+    
+    @State var searchResult: [ShopInfo] = []
+    
+    @State var distancefilter: Bool = false
+    
     @State private var mapViewSearchText: String = ""
     var body: some View {
         NavigationStack {
             ZStack {
                 
                 Map(coordinateRegion: $mapViewModel.region,
-                    showsUserLocation: true, annotationItems: shopInfoStore.shopInfos
-                ) { shopInfo in
-                    MapAnnotation(coordinate: shopInfo.shopCoordinates) {
+                    showsUserLocation: true, annotationItems: $searchResult
+                ) { $shopInfo in
+                    MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: shopInfo.shopLocationLatitude, longitude: shopInfo.shopLocationLontitude)) {
                         VStack {
                             Group {
                                 Button {
@@ -97,9 +114,24 @@ struct MapView: View {
                     }
                     
                 }
-                
-                SearchBar(searchBarText: $mapViewSearchText)
-                    .offset(y: -330)
+                HStack {
+                    MapViewSearchBar(mapSearchBarText: $mapViewSearchText, searchResult: $searchResult)
+                    Button(action: {
+                        searchResult = getSearchResult(searchText: mapViewSearchText)
+                    }){
+                        Text("검색")
+                            .foregroundColor(.white)
+                    }
+                    
+                    .frame(width: 50, height: 40)
+                    .background(Color.mainColor)
+                    .cornerRadius(10)
+                    .padding(.leading, -20)
+                }
+                .offset(y: -305)
+
+                    
+                    
                 
                 if isCarousel {
                     NavigationLink {
@@ -111,18 +143,66 @@ struct MapView: View {
                     .padding(.horizontal, 20)
                 }
                 Button(action:{
-                    mapViewModel.checkLocationIsEnbeld()
+                    mapViewModel.region.center = mapViewModel.locationManager?.location?.coordinate ?? MapDetails.startingLocation
+//                    mapViewModel.checkLocationIsEnbeld()
+//                    mapViewModel.region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
                 }) {
                     Image("gps_Image")
                         .resizable()
                         .frame(width: 40, height: 40)
                 }
                 .position(x: 354, y: 520)
+                
+                
+                // 내 주변 5km
+                Button(action:{
+                    distancefilter.toggle()
+                    searchResult = getSearchResult(searchText: mapViewSearchText)
+                }) {
+                    ZStack{
+                        Circle()
+                            .foregroundColor(.white)
+                            .frame(width: 40, height: 40)
+                        Image(systemName: "5.circle")
+                            .font(.title3)
+                    }
+                        
+
+                }
+                .position(x: 354, y: 470)
             }
+            .edgesIgnoringSafeArea(.top)
         }
-        .onAppear{
+        .task {
+            await shopInfoStore.requestShopInfos()
+            searchResult = shopInfoStore.shopInfos
             mapViewModel.checkLocationIsEnbeld()
         }
+        
+    }
+    // 검색 기능
+    func getSearchResult(searchText: String) -> [ShopInfo] {
+        let filteredData = self.shopInfoStore.shopInfos
+        
+        if distancefilter {
+            if !searchText.isEmpty {
+                return filteredData.filter {
+                    $0.shopName.contains(searchText) &&
+                    $0.shopCoordinates.distance(from: mapViewModel.region.center) < 5000
+                }
+            } else {
+                return filteredData.filter {
+                    $0.shopCoordinates.distance(from: mapViewModel.region.center) < 5000
+                }
+            }
+        } else {
+            if !searchText.isEmpty {
+                return filteredData.filter {
+                    $0.shopName.contains(searchText)
+                }
+            }
+        }
+        return filteredData
     }
 }
 
