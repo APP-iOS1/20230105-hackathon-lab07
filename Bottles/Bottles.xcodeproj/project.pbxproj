@@ -32,6 +32,8 @@
 		D70037AE29673D7600BF096C /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70037AD29673D7600BF096C /* RegisterView.swift */; };
 		D70037B12967454B00BF096C /* NaverThirdPartyLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70037AF29673EB700BF096C /* NaverThirdPartyLogin.framework */; };
 		D70037B22967454B00BF096C /* NaverThirdPartyLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D70037AF29673EB700BF096C /* NaverThirdPartyLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D70037B52967A6DA00BF096C /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70037B42967A6DA00BF096C /* AuthStore.swift */; };
+		D70037B72967BA8500BF096C /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70037B62967BA8500BF096C /* RouteView.swift */; };
 		D74F25FA2967151300C13F14 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = D74F25F92967151300C13F14 /* credentials.plist */; };
 		D74F25FD296715CC00C13F14 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D74F25FC296715CC00C13F14 /* GoogleSignIn */; };
 		D74F25FF296715CC00C13F14 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D74F25FE296715CC00C13F14 /* GoogleSignInSwift */; };
@@ -91,6 +93,8 @@
 		D70037AB29672A7900BF096C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D70037AD29673D7600BF096C /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		D70037AF29673EB700BF096C /* NaverThirdPartyLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NaverThirdPartyLogin.framework; sourceTree = "<group>"; };
+		D70037B42967A6DA00BF096C /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
+		D70037B62967BA8500BF096C /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 		D74F25F92967151300C13F14 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		D752DFA329668AFE0030A1CB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D752DFA829668C510030A1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				92E249ED2966CBA50045791D /* Bottles.entitlements */,
 				92E249E72966A82E0045791D /* BottlesRelease.entitlements */,
 				D752DFA829668C510030A1CB /* Info.plist */,
+				D70037B62967BA8500BF096C /* RouteView.swift */,
 				0405D4E2296685D9001FE965 /* View */,
 				0405D4D32965939B001FE965 /* Model */,
 				0405D4D4296593D4001FE965 /* Store */,
@@ -213,6 +218,7 @@
 			children = (
 				0405D4E529668636001FE965 /* UserInfoStore.swift */,
 				0405D4E72966865E001FE965 /* ShopInfoStore.swift */,
+				D70037B42967A6DA00BF096C /* AuthStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70037B72967BA8500BF096C /* RouteView.swift in Sources */,
 				D70037AE29673D7600BF096C /* RegisterView.swift in Sources */,
 				0405D49A29658293001FE965 /* ContentView.swift in Sources */,
 				0405D4D729659449001FE965 /* UserInfo.swift in Sources */,
@@ -387,6 +394,7 @@
 				0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */,
 				0405D4E4296685F1001FE965 /* TempView.swift in Sources */,
 				0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */,
+				D70037B52967A6DA00BF096C /* AuthStore.swift in Sources */,
 				D752DFA429668AFE0030A1CB /* LoginView.swift in Sources */,
 				0405D4D929659466001FE965 /* ShopInfo.swift in Sources */,
 			);

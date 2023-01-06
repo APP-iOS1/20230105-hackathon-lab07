@@ -8,37 +8,67 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @State private var email = ""
+    
+    @EnvironmentObject var authStore : AuthStore
+    @Binding var userEmail : String
+    @Binding var userName : String
+    @State private var resisterCheck : Bool = false
     @State private var isValid = true
     
+    //현재 인스턴스를 해제하기 위해 사용
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 50) {
-            Text("이메일을 입력해주세요")
-                .font(.title)
+        VStack(alignment: .leading, spacing: 10) {
+            
+            Text("Welcome Bottls")
+                .font(.largeTitle)
                 .bold()
-            VStack(alignment: .leading) {
-                TextField("이메일 입력", text: $email)
-                    .font(.title3)
-                    .bold()
-                    .padding(.bottom, 5)
-                Divider()
-                    .frame(height: 2)
-                    .background(.purple) // 색상변경해야 됨
-                if !isValid {
-                    Text("이메일 양식이 맞지 않습니다.")
-                        .foregroundColor(.purple)
-                        .font(.footnote)
-                        .padding(.top, 5)
-                }
-            }
+                .foregroundColor(.purple)
+                .padding(.top, 40)
+            
+            Text("아래 내용으로 회원가입하시겠습니까?")
+                .font(.title2)
+                .bold()
+            
+            Text("이름")
+                .font(.body)
+                .fontWeight(.semibold)
+                .foregroundColor(.purple)
+                .padding(.top, 20)
+            
+            Text("\(userName)")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundColor(.gray)
+                
+            
+            Text("이메일")
+                .font(.body)
+                .fontWeight(.semibold)
+                .foregroundColor(.purple)
+                .padding(.top, 20)
+            
+            Text("\(userEmail)")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundColor(.gray)
+            
             Spacer()
             Button(action: {
-                if isValidEmail(email: email) {
-                    isValid = true
-                } else {
-                    isValid = false
-                    email = ""
+                
+                //Firebase로 계정 생성
+                Task{
+                    resisterCheck = await authStore.resistUser(email: userEmail, nickname: userName)
+                    print("회원가입 성공 \(resisterCheck)")
+                    
+                    if resisterCheck == true {
+                        authStore.page = "Page2"
+                    } else {
+                        dismiss()
+                    }
                 }
+                
             }) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 5)
@@ -52,6 +82,10 @@ struct RegisterView: View {
             .padding(.bottom)
             
         }
+        .onAppear {
+            print("\(userName)")
+            print("\(userEmail)")
+        }
         .padding()
     }
     // 이메일 정규식
@@ -62,8 +96,8 @@ struct RegisterView: View {
     }
 }
 
-struct UserInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegisterView()
-    }
-}
+//struct UserInfoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RegisterView(authStore: AuthStore(), userEmail: "", userName: "", isValid: true)
+//    }
+//}

@@ -51,7 +51,7 @@ struct BottlesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            RouteView().environmentObject(AuthStore())
         }
     }
 }

@@ -15,6 +15,8 @@ import FirebaseCore
 import Firebase
 import FirebaseAuth
 import FBSDKLoginKit
+import GoogleSignIn
+import GoogleSignInSwift
 
 var manager = LoginManager()
 class NaverLoginViewModel : NSObject, UIApplicationDelegate, NaverThirdPartyLoginConnectionDelegate {
@@ -47,7 +49,7 @@ class NaverLoginViewModel : NSObject, UIApplicationDelegate, NaverThirdPartyLogi
             self.loginView.handleFetchDataSuccessOnNaverLogin()
         }
     }
-
+    
     // 토큰 발급 성공시
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         getUserInfo()
@@ -62,7 +64,11 @@ class NaverLoginViewModel : NSObject, UIApplicationDelegate, NaverThirdPartyLogi
 
 struct LoginView: View {
     
+    @EnvironmentObject var authStore : AuthStore
+    
     @State private var userName : String = ""
+    @State private var userEmail : String = ""
+    @State private var userCheck : Bool = false
     @State private var presentRegisterSheet : Bool = false
     @State private var naverLoginModel : NaverLoginViewModel?
     
@@ -70,14 +76,27 @@ struct LoginView: View {
     func handleFetchDataSuccessOnNaverLogin() {
         print("네이버로부터 받아온 userName: \(naverLoginModel!.userName!)")
         
-        userName = naverLoginModel!.userName!
+        print("네이버로부터 받아온 email: \(naverLoginModel!.email!)")
         
-        if userName != nil {
-            presentRegisterSheet = true
-            print("결과2 : \(presentRegisterSheet)")
+        userName = naverLoginModel!.userName!
+        userEmail = naverLoginModel!.email!
+        
+        Task{
+            //Firebase User 컬렉션에 도큐먼트(email)이 있는지 확인
+            userCheck = await authStore.checkAccountAndLogin(email: userEmail)
+            print("체크 결과 \(userCheck)")
+            
+            if userCheck == true {
+                // TODO: 이미 회원가입 된 유저 -> 홈 화면으로 넘겨줘야합
+                authStore.page = "Page2"
+            } else {
+                // 회원가입 시도
+                presentRegisterSheet = true
+                print("결과2 : \(presentRegisterSheet)")
+            }
         }
     }
-
+    
     var body: some View {
         
         
@@ -89,8 +108,8 @@ struct LoginView: View {
             Spacer()
             Text("소셜 회원가입 및 로그인")
                 .padding(.bottom, 20)
-
-                
+            
+            
             
             HStack{
                 
@@ -124,13 +143,13 @@ struct LoginView: View {
                         .frame(width: 50, height: 50)
                 }.onOpenURL { url in
                     // 브라우저에서 나온 직후, 네이버 로그인하기 위해 브라우저를 연 것이라면 토큰 발급 요청
-                        // Token 발급 요청
+                    // Token 발급 요청
                     NaverThirdPartyLoginConnection
                         .getSharedInstance()
                         .receiveAccessToken(url)
                 }
                 .padding(.trailing, 5)
-
+                
                 //카카오 버튼
                 Button {
                     // 카카오톡이 설치되어 있는지 확인하는 함수
@@ -143,10 +162,27 @@ struct LoginView: View {
                                     userName = name
                                     print("결과1 : \(userName)")
                                 }
-                                if userName != nil {
-                                    presentRegisterSheet = true
-                                    print("결과2 : \(presentRegisterSheet)")
+                                if let email = User?.kakaoAccount?.email {
+                                    userEmail = email
+                                    print("카카오 이메일 : \(userEmail)")
                                 }
+                                
+                                Task{
+                                    //Firebase User 컬렉션에 도큐먼트(email)이 있는지 확인
+                                    userCheck = await authStore.checkAccountAndLogin(email: userEmail)
+                                    print("체크 결과 \(userCheck)")
+                                    
+                                    if userCheck == true {
+                                        // TODO: 이미 회원가입 된 유저 -> 홈 화면으로 넘겨줘야합
+                                        authStore.page = "Page2"
+                                    } else {
+                                        // 회원가입 시도
+                                        presentRegisterSheet = true
+                                        print("결과2 : \(presentRegisterSheet)")
+                                    }
+                                }
+                                
+                                
                             }
                             
                         }
@@ -160,9 +196,25 @@ struct LoginView: View {
                                     userName = name
                                     print("결과1 : \(userName)")
                                 }
-                                if userName != nil {
-                                    presentRegisterSheet = true
-                                    print("결과2 : \(presentRegisterSheet)")
+                                if let email = User?.kakaoAccount?.email {
+                                    userEmail = email
+                                    print("카카오 이메일 : \(userEmail)")
+                                }
+                                
+                                Task{
+                                    //Firebase User 컬렉션에 도큐먼트(email)이 있는지 확인
+                                    userCheck = await authStore.checkAccountAndLogin(email: userEmail)
+                                    print("체크 결과 \(userCheck)")
+                                    
+                                    if userCheck == true {
+                                        // TODO: 이미 회원가입 된 유저 -> 홈 화면으로 넘겨줘야합
+                                        authStore.page = "Page2"
+                                        
+                                    } else {
+                                        // 회원가입 시도
+                                        presentRegisterSheet = true
+                                        print("결과2 : \(presentRegisterSheet)")
+                                    }
                                 }
                             }
                         }
@@ -187,14 +239,30 @@ struct LoginView: View {
                             let request = GraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"])
                             request.start { (_, res, _) in
                                 guard let profileData = res as? [String: Any] else { return }
-                                let token = profileData["id"]
-                                let email = profileData["email"] as! String
-                                let name = profileData["name"] as! String
-                                userName = name
-                                if userName != nil {
-                                    presentRegisterSheet = true
-                                    print("결과2 : \(presentRegisterSheet)")
+                                userName = profileData["name"] as! String // 이름
+                                //                                userId = profileData["id"] as! String // id
+                                userEmail = profileData["email"] as! String
+                                
+                                print("페북결과 \(userName)")
+                                print("페북결과 \(userEmail)")
+                                
+                                Task{
+                                    //Firebase User 컬렉션에 도큐먼트(email)이 있는지 확인
+                                    userCheck = await authStore.checkAccountAndLogin(email: userEmail)
+                                    
+                                    print("체크 결과 \(userCheck)")
+                                    
+                                    if userCheck == true {
+                                        // TODO: 이미 회원가입 된 유저 -> 홈 화면으로 넘겨줘야합
+                                        authStore.page = "Page2"
+                                    } else {
+                                        // 회원가입 시도
+                                        presentRegisterSheet = true
+                                        print("결과2 : \(presentRegisterSheet)")
+                                    }
                                 }
+                                
+                                
                             }
                         }
                     }
@@ -205,17 +273,17 @@ struct LoginView: View {
                 }
                 .padding(.trailing, 5)
                 
-                Button(action: {
-                    LoginManager.init().logOut()
-                    let isTokenExist = AccessToken.current?.tokenString != nil
-                    let isTokenValid = !(AccessToken.current?.isExpired ?? true)
-                    print(isTokenExist)
-                    print(isTokenValid)
-    
-                }) {
-                    Text("페이스북 로그아웃")
-                }
-    
+//                Button(action: {
+//                    LoginManager.init().logOut()
+//                    let isTokenExist = AccessToken.current?.tokenString != nil
+//                    let isTokenValid = !(AccessToken.current?.isExpired ?? true)
+//                    print(isTokenExist)
+//                    print(isTokenValid)
+//
+//                }) {
+//                    Text("페이스북 로그아웃")
+//                }
+                
                 
                 //구글 버튼
                 Button {
@@ -238,6 +306,10 @@ struct LoginView: View {
                         print("구글결과 \(name)")
                         print("구글결과 \(userid)")
                         
+                        var email = user?.profile?.email
+                        print("구글결과 \(email)")
+                        print("구글 결과 \(user?.profile)")
+                        
                         guard
                             let authentication = user?.authentication,
                             let idToken = authentication.idToken
@@ -248,12 +320,24 @@ struct LoginView: View {
                         let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                                        accessToken: authentication.accessToken)
                         
-                        if let userName = name {
+                        if let userName = name, let userEmail = email {
                             self.userName = userName
-                            presentRegisterSheet = true
-                            print("결과2 : \(presentRegisterSheet)")
+                            self.userEmail = userEmail
+                            Task{
+                                //Firebase User 컬렉션에 도큐먼트(email)이 있는지 확인
+                                userCheck = await authStore.checkAccountAndLogin(email: userEmail)
+                                print("체크 결과 \(userCheck)")
+                            }
+                            if userCheck == true {
+                                // TODO: 이미 회원가입 된 유저 -> 홈 화면으로 넘겨줘야합
+                                authStore.page = "Page2"
+                            } else {
+                                // 회원가입 시도
+                                presentRegisterSheet = true
+                                print("결과2 : \(presentRegisterSheet)")
+                            }
                         }
-                    
+                        
                     }
                 } label: {
                     Image("googleLogo")
@@ -261,7 +345,7 @@ struct LoginView: View {
                         .frame(width: 50, height: 50)
                         .overlay { // <-
                             Circle().stroke(.gray, lineWidth: 2)
-                          }
+                        }
                 }
                 .padding(.trailing, 5)
                 
@@ -273,12 +357,12 @@ struct LoginView: View {
                         .frame(width: 50, height: 50)
                 }
                 
-
+                
             }
             Spacer()
         }
-        .sheet(isPresented: $presentRegisterSheet) {
-            RegisterView
+        .fullScreenCover(isPresented: $presentRegisterSheet) {
+            RegisterView(userEmail : $userEmail, userName: $userName)
         }
     }
     
@@ -288,7 +372,7 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView().environmentObject(AuthStore())
     }
 }
 
