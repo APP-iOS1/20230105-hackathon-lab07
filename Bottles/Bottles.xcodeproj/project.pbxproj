@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,7 @@
 		0405D4D929659466001FE965 /* ShopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4D829659466001FE965 /* ShopInfo.swift */; };
 		0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E529668636001FE965 /* UserInfoStore.swift */; };
 		0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E72966865E001FE965 /* ShopInfoStore.swift */; };
+
 		0405D4EA29669A53001FE965 /* JsonToFirestoreTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */; };
 		046B3AB72966B6F500F6F21D /* csvjson.json in Resources */ = {isa = PBXBuildFile; fileRef = 046B3AB62966B6F400F6F21D /* csvjson.json */; };
 		046B3AB929670B7E00F6F21D /* ItemInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B3AB829670B7E00F6F21D /* ItemInfoStore.swift */; };
@@ -50,6 +51,20 @@
 		7FE7BFCF2966A469000188EC /* WaitingPickupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BFCE2966A469000188EC /* WaitingPickupCell.swift */; };
 		7FE7BFD12966B04A000188EC /* PickedUpBottleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7BFD02966B04A000188EC /* PickedUpBottleCell.swift */; };
 		82EC1D6D2966929700029E8A /* BottleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EC1D6C2966929700029E8A /* BottleDetailView.swift */; };
+		92E249EA2966AD060045791D /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 92E249E92966AD060045791D /* FacebookCore */; };
+		92E249EC2966AD060045791D /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 92E249EB2966AD060045791D /* FacebookLogin */; };
+		D70037AC29672A7900BF096C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D70037AB29672A7900BF096C /* GoogleService-Info.plist */; };
+		D70037AE29673D7600BF096C /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70037AD29673D7600BF096C /* RegisterView.swift */; };
+		D70037B12967454B00BF096C /* NaverThirdPartyLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70037AF29673EB700BF096C /* NaverThirdPartyLogin.framework */; };
+		D70037B22967454B00BF096C /* NaverThirdPartyLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D70037AF29673EB700BF096C /* NaverThirdPartyLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D70037B52967A6DA00BF096C /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70037B42967A6DA00BF096C /* AuthStore.swift */; };
+		D70037B72967BA8500BF096C /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70037B62967BA8500BF096C /* RouteView.swift */; };
+		D74F25FA2967151300C13F14 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = D74F25F92967151300C13F14 /* credentials.plist */; };
+		D74F25FD296715CC00C13F14 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D74F25FC296715CC00C13F14 /* GoogleSignIn */; };
+		D74F25FF296715CC00C13F14 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D74F25FE296715CC00C13F14 /* GoogleSignInSwift */; };
+		D752DFA429668AFE0030A1CB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D752DFA329668AFE0030A1CB /* LoginView.swift */; };
+		D752DFA729668C040030A1CB /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D752DFA629668C040030A1CB /* KakaoSDK */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +83,20 @@
 			remoteInfo = Bottles;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D70037B32967454B00BF096C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D70037B22967454B00BF096C /* NaverThirdPartyLogin.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0214085A296695EA0051FF33 /* BottleShopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleShopDetailView.swift; sourceTree = "<group>"; };
@@ -88,6 +117,7 @@
 		0405D4D829659466001FE965 /* ShopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfo.swift; sourceTree = "<group>"; };
 		0405D4E529668636001FE965 /* UserInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStore.swift; sourceTree = "<group>"; };
 		0405D4E72966865E001FE965 /* ShopInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfoStore.swift; sourceTree = "<group>"; };
+
 		0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonToFirestoreTestView.swift; sourceTree = "<group>"; };
 		046B3AB62966B6F400F6F21D /* csvjson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = csvjson.json; sourceTree = "<group>"; };
 		046B3AB829670B7E00F6F21D /* ItemInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoStore.swift; sourceTree = "<group>"; };
@@ -109,6 +139,18 @@
 		7FE7BFCE2966A469000188EC /* WaitingPickupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingPickupCell.swift; sourceTree = "<group>"; };
 		7FE7BFD02966B04A000188EC /* PickedUpBottleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickedUpBottleCell.swift; sourceTree = "<group>"; };
 		82EC1D6C2966929700029E8A /* BottleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleDetailView.swift; sourceTree = "<group>"; };
+
+		92E249E72966A82E0045791D /* BottlesRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BottlesRelease.entitlements; sourceTree = "<group>"; };
+		92E249ED2966CBA50045791D /* Bottles.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bottles.entitlements; sourceTree = "<group>"; };
+		D70037AB29672A7900BF096C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D70037AD29673D7600BF096C /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		D70037AF29673EB700BF096C /* NaverThirdPartyLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NaverThirdPartyLogin.framework; sourceTree = "<group>"; };
+		D70037B42967A6DA00BF096C /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
+		D70037B62967BA8500BF096C /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
+		D74F25F92967151300C13F14 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		D752DFA329668AFE0030A1CB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D752DFA829668C510030A1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,12 +158,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E249EC2966AD060045791D /* FacebookLogin in Frameworks */,
 				0405D4CD2965838A001FE965 /* FirebaseDatabaseSwift in Frameworks */,
+				D74F25FD296715CC00C13F14 /* GoogleSignIn in Frameworks */,
+				D74F25FF296715CC00C13F14 /* GoogleSignInSwift in Frameworks */,
+				D752DFA729668C040030A1CB /* KakaoSDK in Frameworks */,
 				0405D4C72965838A001FE965 /* FirebaseAnalyticsSwift in Frameworks */,
 				0405D4C92965838A001FE965 /* FirebaseAuth in Frameworks */,
+				D70037B12967454B00BF096C /* NaverThirdPartyLogin.framework in Frameworks */,
 				0405D4D12965838A001FE965 /* FirebaseFirestoreSwift in Frameworks */,
 				0405D4CB2965838A001FE965 /* FirebaseDatabase in Frameworks */,
 				0405D4C52965838A001FE965 /* FirebaseAnalytics in Frameworks */,
+				92E249EA2966AD060045791D /* FacebookCore in Frameworks */,
 				0405D4CF2965838A001FE965 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,14 +214,28 @@
 		0405D49629658293001FE965 /* Bottles */ = {
 			isa = PBXGroup;
 			children = (
+
 				0405D49729658293001FE965 /* BottlesApp.swift */,
 				271F1C8E2966CE2100FCE981 /* Extension */,
 				046B3AB62966B6F400F6F21D /* csvjson.json */,
+
+				D70037AF29673EB700BF096C /* NaverThirdPartyLogin.framework */,
+				D74F25F92967151300C13F14 /* credentials.plist */,
+				92E249ED2966CBA50045791D /* Bottles.entitlements */,
+				92E249E72966A82E0045791D /* BottlesRelease.entitlements */,
+				D752DFA829668C510030A1CB /* Info.plist */,
+				D70037B62967BA8500BF096C /* RouteView.swift */,
+
 				0405D4E2296685D9001FE965 /* View */,
 				0405D4D32965939B001FE965 /* Model */,
 				7F4C6F022966EF1900B6E05D /* ViewModel */,
 				0405D4D4296593D4001FE965 /* Store */,
+
 				7F4C6F052966FB7C00B6E05D /* GoogleService-Info.plist */,
+
+				
+				0405D49929658293001FE965 /* ContentView.swift */,
+
 				0405D49B29658296001FE965 /* Assets.xcassets */,
 				0405D49D29658296001FE965 /* Preview Content */,
 			);
@@ -219,7 +281,11 @@
 			children = (
 				0405D4E529668636001FE965 /* UserInfoStore.swift */,
 				0405D4E72966865E001FE965 /* ShopInfoStore.swift */,
+
 				046B3AB829670B7E00F6F21D /* ItemInfoStore.swift */,
+
+				D70037B42967A6DA00BF096C /* AuthStore.swift */,
+
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -227,6 +293,7 @@
 		0405D4E2296685D9001FE965 /* View */ = {
 			isa = PBXGroup;
 			children = (
+
 				0214086229671E670051FF33 /* MainLoadingView.swift */,
 				0405D49929658293001FE965 /* ContentView.swift */,
 				271F1C8B2966CAEB00FCE981 /* FollowBottleShop */,
@@ -237,6 +304,11 @@
 				271F1C822966C03100FCE981 /* BottleDetail */,
 				271F1C812966C00700FCE981 /* MyPage */,
 				0405D4E929669A53001FE965 /* JsonToFirestoreTestView.swift */,
+
+				0405D4E3296685F1001FE965 /* TempView.swift */,
+				D752DFA329668AFE0030A1CB /* LoginView.swift */,
+				D70037AD29673D7600BF096C /* RegisterView.swift */,
+
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,6 +406,7 @@
 				0405D49029658293001FE965 /* Sources */,
 				0405D49129658293001FE965 /* Frameworks */,
 				0405D49229658293001FE965 /* Resources */,
+				D70037B32967454B00BF096C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,6 +421,11 @@
 				0405D4CC2965838A001FE965 /* FirebaseDatabaseSwift */,
 				0405D4CE2965838A001FE965 /* FirebaseFirestore */,
 				0405D4D02965838A001FE965 /* FirebaseFirestoreSwift */,
+				D752DFA629668C040030A1CB /* KakaoSDK */,
+				92E249E92966AD060045791D /* FacebookCore */,
+				92E249EB2966AD060045791D /* FacebookLogin */,
+				D74F25FC296715CC00C13F14 /* GoogleSignIn */,
+				D74F25FE296715CC00C13F14 /* GoogleSignInSwift */,
 			);
 			productName = Bottles;
 			productReference = 0405D49429658293001FE965 /* Bottles.app */;
@@ -413,7 +491,7 @@
 				};
 			};
 			buildConfigurationList = 0405D48F29658293001FE965 /* Build configuration list for PBXProject "Bottles" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -423,6 +501,9 @@
 			mainGroup = 0405D48B29658293001FE965;
 			packageReferences = (
 				0405D4C32965838A001FE965 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D752DFA529668C040030A1CB /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				92E249E82966AD060045791D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				D74F25FB296715CC00C13F14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 0405D49529658293001FE965 /* Products */;
 			projectDirPath = "";
@@ -441,7 +522,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0405D49F29658296001FE965 /* Preview Assets.xcassets in Resources */,
+
 				046B3AB72966B6F500F6F21D /* csvjson.json in Resources */,
+
+				D74F25FA2967151300C13F14 /* credentials.plist in Resources */,
+
 				0405D49C29658296001FE965 /* Assets.xcassets in Resources */,
 				7F4C6F062966FB7C00B6E05D /* GoogleService-Info.plist in Resources */,
 			);
@@ -468,7 +553,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				046B3AB929670B7E00F6F21D /* ItemInfoStore.swift in Sources */,
+
+				D70037B72967BA8500BF096C /* RouteView.swift in Sources */,
+				D70037AE29673D7600BF096C /* RegisterView.swift in Sources */,
+
 				0405D49A29658293001FE965 /* ContentView.swift in Sources */,
 				7F7E489D29675C5F0050EDED /* TestMapViewModel.swift in Sources */,
 				7F7E489F29676C390050EDED /* CLLocationCoordinate2DExtension.swift in Sources */,
@@ -489,10 +579,15 @@
 				0405D4E82966865E001FE965 /* ShopInfoStore.swift in Sources */,
 				271F1C802966BC5D00FCE981 /* SearchBar.swift in Sources */,
 				0405D4E629668636001FE965 /* UserInfoStore.swift in Sources */,
+
 				7F7E48A1296771F90050EDED /* MapViewSearchBar.swift in Sources */,
 				0214085D2966B0920051FF33 /* BottleShopInstagramWebView.swift in Sources */,
 				7FE7BFD12966B04A000188EC /* PickedUpBottleCell.swift in Sources */,
 				7F6C4BCB2966E5D10041ECAF /* EditUserInfoView.swift in Sources */,
+
+				D70037B52967A6DA00BF096C /* AuthStore.swift in Sources */,
+				D752DFA429668AFE0030A1CB /* LoginView.swift in Sources */,
+
 				0405D4D929659466001FE965 /* ShopInfo.swift in Sources */,
 				0214085B296695EA0051FF33 /* BottleShopDetailView.swift in Sources */,
 				271F1C922966D1F100FCE981 /* MapViewCell.swift in Sources */,
@@ -652,18 +747,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Bottles/Bottles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bottles/Preview Content\"";
-				DEVELOPMENT_TEAM = CGUAL476T6;
+				DEVELOPMENT_TEAM = 4RG9LBF3XF;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Bottles",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+
+				INFOPLIST_FILE = Bottles/Info.plist;
+
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,18 +787,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Bottles/BottlesRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bottles/Preview Content\"";
-				DEVELOPMENT_TEAM = CGUAL476T6;
+				DEVELOPMENT_TEAM = 4RG9LBF3XF;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Bottles",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+
+				INFOPLIST_FILE = Bottles/Info.plist;
+
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -833,6 +948,30 @@
 				kind = branch;
 			};
 		};
+		92E249E82966AD060045791D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		D74F25FB296715CC00C13F14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		D752DFA529668C040030A1CB /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -870,6 +1009,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0405D4C32965838A001FE965 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		92E249E92966AD060045791D /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92E249E82966AD060045791D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		92E249EB2966AD060045791D /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92E249E82966AD060045791D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		D74F25FC296715CC00C13F14 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D74F25FB296715CC00C13F14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		D74F25FE296715CC00C13F14 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D74F25FB296715CC00C13F14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		D752DFA629668C040030A1CB /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D752DFA529668C040030A1CB /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
