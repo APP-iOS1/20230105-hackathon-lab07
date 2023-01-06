@@ -16,10 +16,10 @@ import Foundation
 struct UserInfo: Codable, Hashable{
     var id: String = UUID().uuidString // Hashable Protocol 만족시켜주기 위함
     
-    var userBirthDate: Date
-    var userEmail: String
-    var userFavoriteBottles: [LikeItem]
-    var userNickName: String
+    var userBirthDate: Date = Date()
+    var userEmail: String = "dksdmssh1212@naver.com"
+    var userFavoriteBottles: [LikeItem] = []
+    var userNickName: String = ""
 }
 
 // MARK: User가 갖고 있는 좋아하는 Item들의 정보를 담는 구조체입니다.

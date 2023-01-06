@@ -26,6 +26,7 @@ struct BottlesApp: App {
             MainLoadingView()
             .environmentObject(ItemInfoStore())
             .environmentObject(ShopInfoStore())
+            .environmentObject(UserInfoStore())
         }
     }
 }

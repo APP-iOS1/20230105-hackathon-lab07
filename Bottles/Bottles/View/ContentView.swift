@@ -11,8 +11,8 @@ struct ContentView: View {
     @State private var selection: Int = 1
 
     @EnvironmentObject var shopInfoStore: ShopInfoStore
-//    @EnvironmentObject var itemInfoStore: ItemInfoStore
-    
+@EnvironmentObject var userInfoStore: UserInfoStore
+    @EnvironmentObject var itemInfoStore: ItemInfoStore
 
 
     //@EnvironmentObject userInfoStore: UserInfoStore

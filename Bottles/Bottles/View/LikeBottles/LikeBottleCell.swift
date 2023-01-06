@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct LikeBottleCell: View {
-    
+    @EnvironmentObject var itemInfoStore:ItemInfoStore
+    @EnvironmentObject var shopInfoStore:ShopInfoStore
     @State private var isLiked: Bool = false
-    
+    var shopId: String
+    var itemId: String
+    @State private var itemInfo: ItemInfo?
     var body: some View {
         VStack {
             HStack {
@@ -22,20 +25,36 @@ struct LikeBottleCell: View {
                         .foregroundColor(.mainColor)
                 }
             }
-            Image("whisky_Image1")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            AsyncImage(
+                url: URL(string: itemInfo?.itemImage ?? "")) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 140, height: 150)
+                } placeholder: {
+                    Rectangle()
+                        .frame(width: 140, height: 150)
+                        .foregroundColor(.gray)
+                }
             VStack(alignment: .leading, spacing: 5) {
                 // 술 이름
-                Text("발렌타인 파이니스트")
+                Text(itemInfo?.itemName ?? "")
                     .font(.title3)
+                    .lineLimit(2)
                     .bold()
                 //바틀샵 상호명
-                Text("Middle Bottle")
+                Text(shopInfoStore.shopInfos.filter{$0.id == shopId}.first?.shopName ?? "")
+                    .lineLimit(1)
                     .font(.subheadline)
                 // 바틀샵 주소
-                Text("서울특별시 광진구 면목로7길 25 세광빌딩 1층")
+                Text(shopInfoStore.shopInfos.filter{$0.id == shopId}.first?.shopAddress ?? "")
+                    .lineLimit(2)
                     .font(.caption)
+                // 술 가격
+                Text("₩ \(itemInfo?.itemPrice ?? 170000)")
+                    .lineLimit(1)
+                    .font(.caption)
+                    .bold()
             }
             .multilineTextAlignment(.leading)
             .foregroundColor(.black)
@@ -44,13 +63,9 @@ struct LikeBottleCell: View {
         .overlay {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(.gray, lineWidth: 1)
-                
+            
+        }.task{
+            itemInfo = await itemInfoStore.requsetItemInfoUsingTwoParam(shopId: shopId, itemId: itemId)
         }
-    }
-}
-
-struct LikeBottleCell_Previews: PreviewProvider {
-    static var previews: some View {
-        LikeBottleCell()
     }
 }
