@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EditUserInfoView: View {
+    @EnvironmentObject var authStore : AuthStore
     @State var changeUserNickname: String = ""
     var body: some View {
         VStack(alignment: .leading){
@@ -34,7 +35,7 @@ struct EditUserInfoView: View {
             }
             Spacer()
             Button(action:{
-                
+                authStore.page = "Page1"
             }){
                 Text("로그아웃")
                     .frame(width: 360, height: 40)

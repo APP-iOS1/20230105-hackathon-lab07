@@ -88,6 +88,7 @@ struct LoginView: View {
             
             if userCheck == true {
                 // TODO: 이미 회원가입 된 유저 -> 홈 화면으로 넘겨줘야합
+                authStore.userEmail = self.userEmail
                 authStore.page = "Page2"
             } else {
                 // 회원가입 시도
@@ -174,6 +175,7 @@ struct LoginView: View {
                                     
                                     if userCheck == true {
                                         // TODO: 이미 회원가입 된 유저 -> 홈 화면으로 넘겨줘야합
+                                        authStore.userEmail = self.userEmail
                                         authStore.page = "Page2"
                                     } else {
                                         // 회원가입 시도
@@ -208,6 +210,7 @@ struct LoginView: View {
                                     
                                     if userCheck == true {
                                         // TODO: 이미 회원가입 된 유저 -> 홈 화면으로 넘겨줘야합
+                                        authStore.userEmail = self.userEmail
                                         authStore.page = "Page2"
                                         
                                     } else {
@@ -254,6 +257,7 @@ struct LoginView: View {
                                     
                                     if userCheck == true {
                                         // TODO: 이미 회원가입 된 유저 -> 홈 화면으로 넘겨줘야합
+                                        authStore.userEmail = self.userEmail
                                         authStore.page = "Page2"
                                     } else {
                                         // 회원가입 시도
