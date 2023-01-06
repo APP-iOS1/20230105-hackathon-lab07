@@ -9,8 +9,10 @@ import SwiftUI
 
 struct LikeBottleView: View {
     @EnvironmentObject var userInfoStore: UserInfoStore
+    @EnvironmentObject var itemInfoStore: ItemInfoStore
     @State private var searchBarText: String = ""
     @State private var filterType: String = ""
+    
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 10, alignment: nil),
         GridItem(.flexible(), spacing: 10, alignment: nil),
@@ -58,11 +60,11 @@ struct LikeBottleView: View {
                         // List의 Section 기능(header 별 sorting)
                         // pinnedViews: [],
                         content: {
-                            ForEach(0..<10) { index in
+                            ForEach(userInfoStore.userInfo.userFavoriteBottles, id:\.self) { favoriteItemInfoPair in
                                 NavigationLink {
-//                                    BottleDetailView(bottle: index)
+                                    BottleDetailView(bottle: itemInfoStore.likeItemInfos?.filter{$0.id == favoriteItemInfoPair.itemId}.first ?? ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: 0, itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemDegree: ""))
                                 } label: {
-                                    LikeBottleCell()
+                                    LikeBottleCell(shopId: favoriteItemInfoPair.shopId, itemId: favoriteItemInfoPair.itemId)
 
                                 }
                             }
@@ -76,6 +78,8 @@ struct LikeBottleView: View {
             }
         }.task{
             await userInfoStore.requestUserLikes()
+            await itemInfoStore.requestLikeItemInfos(likeInfos: userInfoStore.userInfo.userFavoriteBottles)
+            
         }
     }
 }
