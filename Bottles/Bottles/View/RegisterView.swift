@@ -21,7 +21,7 @@ struct RegisterView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             
-            Text("Welcome Bottls")
+            Text("Welcome Bottles")
                 .font(.largeTitle)
                 .bold()
                 .foregroundColor(.purple)
@@ -55,6 +55,21 @@ struct RegisterView: View {
                 .foregroundColor(.gray)
             
             Spacer()
+            
+            Button {
+                dismiss()
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 5)
+                        .fill(.purple) // 색상변경해야 됨2
+                        .frame(height: 40)
+                    Text("취소")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                }
+            }
+
+            
             Button(action: {
                 
                 //Firebase로 계정 생성
@@ -63,6 +78,7 @@ struct RegisterView: View {
                     print("회원가입 성공 \(resisterCheck)")
                     
                     if resisterCheck == true {
+                        authStore.userEmail = userEmail
                         authStore.page = "Page2"
                     } else {
                         dismiss()
@@ -73,7 +89,7 @@ struct RegisterView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 5)
                         .fill(.purple) // 색상변경해야 됨2
-                        .frame(height: 50)
+                        .frame(height: 40)
                     Text("가입하기")
                         .font(.headline)
                         .foregroundColor(.white)

@@ -9,16 +9,18 @@ import SwiftUI
 struct ContentView: View {
     @State var isLoading: Bool = true
     @State private var selection: Int = 1
-
+    
+    @EnvironmentObject var authStore : AuthStore
     @EnvironmentObject var shopInfoStore: ShopInfoStore
-@EnvironmentObject var userInfoStore: UserInfoStore
+    @EnvironmentObject var userInfoStore: UserInfoStore
     @EnvironmentObject var itemInfoStore: ItemInfoStore
-
-
+    
+    
+    
     //@EnvironmentObject userInfoStore: UserInfoStore
-   
-
-
+    
+    
+    
     var body: some View {
         TabView(selection: $selection) {
             MapView().tabItem {
@@ -38,8 +40,10 @@ struct ContentView: View {
             }.tag(5)
         }.task{
             await shopInfoStore.requestShopInfos()
+            print("\(authStore.userEmail)")
+            
         }
-
+        
     }
 }
 
@@ -47,9 +51,9 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(ShopInfoStore()).environmentObject(ItemInfoStore())
-            
+        
     }
-
-
+    
+    
 }
 

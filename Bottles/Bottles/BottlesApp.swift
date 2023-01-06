@@ -51,7 +51,7 @@ struct BottlesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RouteView()
+            MainLoadingView()
             .environmentObject(ItemInfoStore())
             .environmentObject(ShopInfoStore())
             .environmentObject(UserInfoStore())

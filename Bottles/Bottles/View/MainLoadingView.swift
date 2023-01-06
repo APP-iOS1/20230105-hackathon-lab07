@@ -11,8 +11,8 @@ struct MainLoadingView: View {
     @State private var isActive = false
     var body: some View {
         if isActive {
-//            LoginView()
-            ContentView()
+            RouteView()
+//            ContentView()
         } else {
             ZStack {
                 Image("appLogo")

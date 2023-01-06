@@ -17,6 +17,10 @@ class AuthStore : ObservableObject {
     //앱 로그인에 따른 page 변경
     @Published var page = "Page1"
     
+    
+    //로그인된 useremail
+    @Published var userEmail = ""
+    
     //MARK: FireStore에 관리자 계정으로 등록된 이메일만 로그인하는 메서드
     func checkAccountAndLogin(email : String) async -> Bool {
         
