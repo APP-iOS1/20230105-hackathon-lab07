@@ -15,10 +15,9 @@ class UserInfoStore : ObservableObject{
     
     @MainActor
     func requestUserLikes() async{
-        userInfo = UserInfo()
-        var fetchingResult:[String] = []
+        
         do{
-            let likeList = try await database.collection("User").document(userEmail).getDocument().get("likeList") as! [String]
+            let likeList = try await database.collection("User").document(userInfo.userEmail).getDocument().get("likeList") as! [String]
             print("likeList:\(likeList)")
             for like in likeList{
                 let arr = like.components(separatedBy: ",")
@@ -30,6 +29,18 @@ class UserInfoStore : ObservableObject{
             print(error)
         }
         
+    }
+    
+    @MainActor
+    func requestUserInfo(userEmail: String) async{
+        do{
+            let docRef = try await database.collection("User").document(userEmail).getDocument()
+            
+            userInfo = UserInfo(id: docRef.documentID, userEmail: docRef.documentID, userNickName: docRef.get("nickname") as! String)
+            
+        }catch{
+            print(error)
+        }
     }
 }
 
