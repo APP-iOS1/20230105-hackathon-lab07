@@ -61,6 +61,7 @@ struct MapViewCell: View {
                             HStack {
                                 Image("pin")
                                 Text("\(shopInfo.shopAddress)")
+                                    .multilineTextAlignment(.leading)
                             }
                             .font(.footnote)
                             

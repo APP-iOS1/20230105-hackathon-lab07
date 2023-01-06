@@ -54,27 +54,41 @@ struct LikeBottleView: View {
                 .padding(.bottom, -5)
                 .padding(.horizontal, 20)
                 
-                // MARK: - GridView
-                ScrollView {
-                    LazyVGrid(
-                        columns: columns,
-                        alignment: .center,
-                        spacing: 10,
-                        // List의 Section 기능(header 별 sorting)
-                        // pinnedViews: [],
-                        content: {
-                            ForEach(userInfoStore.userInfo.userFavoriteBottles, id:\.self) { favoriteItemInfoPair in
-                                NavigationLink {
-                                    BottleDetailView(bottle: itemInfoStore.likeItemInfos?.filter{$0.id == favoriteItemInfoPair.itemId}.first ?? ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: 0, itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemAbv: "", itemDegree: ""))
-                                } label: {
-                                    LikeBottleCell(shopId: favoriteItemInfoPair.shopId, itemId: favoriteItemInfoPair.itemId)
+                if userInfoStore.userInfo.userFavoriteBottles.count == 0{
+                    Spacer()
+                    VStack{
+                        Image(systemName: "wineglass.fill")
+                            .font(.system(size:30))
+                        Text("아직 좋아요를 누르신 바틀이 없네요! 마음에 드는 바틀을 추가해보세요!")
+                            .font(.subheadline)
+                            .bold()
+                        
+                    }
+                    Spacer()
+                }else{
+                    // MARK: - GridView
+                    ScrollView {
+                        LazyVGrid(
+                            columns: columns,
+                            alignment: .center,
+                            spacing: 10,
+                            // List의 Section 기능(header 별 sorting)
+                            // pinnedViews: [],
+                            content: {
+                                ForEach(userInfoStore.userInfo.userFavoriteBottles, id:\.self) { favoriteItemInfoPair in
+                                    NavigationLink {
+                                        BottleDetailView(bottle: itemInfoStore.likeItemInfos?.filter{$0.id == favoriteItemInfoPair.itemId}.first ?? ItemInfo(id: "", itemImage: "", itemName: "", itemPrice: 0, itemML: 0, itemNation: "", itemProducer: "", itemLocal1: "", itemLocal2: "", itemLocal3: "", itemVarities: "", itemUse: "", itemType: "", itemYear: 0, itemAbv: "", itemDegree: ""))
+                                    } label: {
+                                        LikeBottleCell(shopId: favoriteItemInfoPair.shopId, itemId: favoriteItemInfoPair.itemId)
 
+                                    }
                                 }
-                            }
-                        })
-                    .padding(.top, 5)
-                    .padding(.horizontal, 20)
+                            })
+                        .padding(.top, 5)
+                        .padding(.horizontal, 20)
+                    }
                 }
+                
             }
             .refreshable {
                 //

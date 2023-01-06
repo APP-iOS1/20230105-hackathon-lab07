@@ -327,15 +327,19 @@ struct LoginView: View {
                                 //Firebase User 컬렉션에 도큐먼트(email)이 있는지 확인
                                 userCheck = await authStore.checkAccountAndLogin(email: userEmail)
                                 print("체크 결과 \(userCheck)")
+                                if userCheck == true {
+                                    // TODO: 이미 회원가입 된 유저 -> 홈 화면으로 넘겨줘야합
+                                    authStore.userEmail = self.userEmail
+                                    
+                                    authStore.page = "Page2"
+                                    
+                                } else {
+                                    // 회원가입 시도
+                                    presentRegisterSheet = true
+                                    print("결과2 : \(presentRegisterSheet)")
+                                }
                             }
-                            if userCheck == true {
-                                // TODO: 이미 회원가입 된 유저 -> 홈 화면으로 넘겨줘야합
-                                authStore.page = "Page2"
-                            } else {
-                                // 회원가입 시도
-                                presentRegisterSheet = true
-                                print("결과2 : \(presentRegisterSheet)")
-                            }
+                            
                         }
                         
                     }

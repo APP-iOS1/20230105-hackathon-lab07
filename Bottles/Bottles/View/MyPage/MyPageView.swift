@@ -19,7 +19,7 @@ struct MyPageView: View {
             ScrollView {
                 VStack {
                     HStack{
-                        Text(userInfoStore.userInfo.userNickName)
+                        Text(userInfoStore.userInfo.userNickName+"님! 환영합니다")
                             .font(.title)
                         Spacer()
                         NavigationLink(destination: EditUserInfoView()) {
