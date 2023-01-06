@@ -13,8 +13,6 @@ import FirebaseAuth
 //카카오 로그인 SDK
 import KakaoSDKCommon
 import KakaoSDKAuth
-//구글 로그인 SDK
-import GoogleSignIn
 //페이스북 로그인 SDK
 import FBSDKCoreKit
 
@@ -40,13 +38,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         }
     
     //구글 로그인을 위한 초기화
-    @available(iOS 9.0, *)
-    func application(_ application: UIApplication, open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey: Any])
-      -> Bool {
-    
-      return GIDSignIn.sharedInstance.handle(url)
-    }
 }
 
 @main

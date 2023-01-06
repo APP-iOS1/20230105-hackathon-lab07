@@ -11,11 +11,9 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import NaverThirdPartyLogin
 import Alamofire
-import GoogleSignIn
 import FirebaseCore
 import Firebase
 import FirebaseAuth
-import GoogleSignInSwift
 import FBSDKLoginKit
 
 var manager = LoginManager()
@@ -65,7 +63,7 @@ class NaverLoginViewModel : NSObject, UIApplicationDelegate, NaverThirdPartyLogi
 struct LoginView: View {
     
     @State private var userName : String = ""
-    @State private var presentUserInfoSheet : Bool = false
+    @State private var presentRegisterSheet : Bool = false
     @State private var naverLoginModel : NaverLoginViewModel?
     
     //네이버 로그인 성공 시
@@ -75,8 +73,8 @@ struct LoginView: View {
         userName = naverLoginModel!.userName!
         
         if userName != nil {
-            presentUserInfoSheet = true
-            print("결과2 : \(presentUserInfoSheet)")
+            presentRegisterSheet = true
+            print("결과2 : \(presentRegisterSheet)")
         }
     }
 
@@ -146,8 +144,8 @@ struct LoginView: View {
                                     print("결과1 : \(userName)")
                                 }
                                 if userName != nil {
-                                    presentUserInfoSheet = true
-                                    print("결과2 : \(presentUserInfoSheet)")
+                                    presentRegisterSheet = true
+                                    print("결과2 : \(presentRegisterSheet)")
                                 }
                             }
                             
@@ -163,8 +161,8 @@ struct LoginView: View {
                                     print("결과1 : \(userName)")
                                 }
                                 if userName != nil {
-                                    presentUserInfoSheet = true
-                                    print("결과2 : \(presentUserInfoSheet)")
+                                    presentRegisterSheet = true
+                                    print("결과2 : \(presentRegisterSheet)")
                                 }
                             }
                         }
@@ -194,8 +192,8 @@ struct LoginView: View {
                                 let name = profileData["name"] as! String
                                 userName = name
                                 if userName != nil {
-                                    presentUserInfoSheet = true
-                                    print("결과2 : \(presentUserInfoSheet)")
+                                    presentRegisterSheet = true
+                                    print("결과2 : \(presentRegisterSheet)")
                                 }
                             }
                         }
@@ -207,17 +205,17 @@ struct LoginView: View {
                 }
                 .padding(.trailing, 5)
                 
-    //            Button(action: {
-    //                LoginManager.init().logOut()
-    //                let isTokenExist = AccessToken.current?.tokenString != nil
-    //                let isTokenValid = !(AccessToken.current?.isExpired ?? true)
-    //                print(isTokenExist)
-    //                print(isTokenValid)
-    //
-    //            }) {
-    //                Text("페이스북 로그아웃")
-    //            }
-    //
+                Button(action: {
+                    LoginManager.init().logOut()
+                    let isTokenExist = AccessToken.current?.tokenString != nil
+                    let isTokenValid = !(AccessToken.current?.isExpired ?? true)
+                    print(isTokenExist)
+                    print(isTokenValid)
+    
+                }) {
+                    Text("페이스북 로그아웃")
+                }
+    
                 
                 //구글 버튼
                 Button {
@@ -252,8 +250,8 @@ struct LoginView: View {
                         
                         if let userName = name {
                             self.userName = userName
-                            presentUserInfoSheet = true
-                            print("결과2 : \(presentUserInfoSheet)")
+                            presentRegisterSheet = true
+                            print("결과2 : \(presentRegisterSheet)")
                         }
                     
                     }
@@ -279,8 +277,8 @@ struct LoginView: View {
             }
             Spacer()
         }
-        .sheet(isPresented: $presentUserInfoSheet) {
-            UserInfoView()
+        .sheet(isPresented: $presentRegisterSheet) {
+            RegisterView
         }
     }
     
