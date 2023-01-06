@@ -17,7 +17,7 @@ struct UserInfo: Codable, Hashable{
     var id: String = UUID().uuidString // Hashable Protocol 만족시켜주기 위함
     
     var userBirthDate: Date = Date()
-    var userEmail: String = "dksdmssh1212@naver.com"
+    var userEmail: String = ""
     var userFavoriteBottles: [LikeItem] = []
     var userNickName: String = ""
 }
