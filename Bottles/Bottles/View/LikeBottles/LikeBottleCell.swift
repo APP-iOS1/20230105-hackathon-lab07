@@ -32,9 +32,10 @@ struct LikeBottleCell: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 140, height: 150)
                 } placeholder: {
-                    Rectangle()
+                    Image("ready_image")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: 140, height: 150)
-                        .foregroundColor(.gray)
                 }
             VStack(alignment: .leading, spacing: 5) {
                 // 술 이름

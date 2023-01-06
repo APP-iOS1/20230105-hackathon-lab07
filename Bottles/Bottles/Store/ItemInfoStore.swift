@@ -51,7 +51,7 @@ class ItemInfoStore: ObservableObject{
     func requsetItemInfoUsingTwoParam(shopId:String, itemId: String) async -> ItemInfo{
         do{
             let docRef = try await database.collection("Test").document(shopId).collection("shopItems").document(itemId).getDocument()
-            return ItemInfo(id: docRef.documentID, itemImage: docRef.get("name") as! String, itemName: docRef.get("name") as! String, itemPrice: docRef.get("price") as! Int, itemML: docRef.get("ml") as! Int, itemNation: docRef.get("nation") as! String, itemProducer: docRef.get("producer") as! String, itemLocal1: docRef.get("local1") as! String, itemLocal2: docRef.get("local2") as! String, itemLocal3: docRef.get("local3") as! String, itemVarities: docRef.get("varieties1") as! String, itemUse: docRef.get("use") as! String, itemType: docRef.get("type") as! String, itemYear: docRef.get("year") as? Int ?? 0, itemAbv: docRef.get("abv") as? String ?? "", itemDegree: docRef.get("degree") as? String ?? "")
+            return ItemInfo(id: docRef.documentID, itemImage: docRef.get("imageLink") as! String, itemName: docRef.get("name") as! String, itemPrice: docRef.get("price") as! Int, itemML: docRef.get("ml") as! Int, itemNation: docRef.get("nation") as! String, itemProducer: docRef.get("producer") as! String, itemLocal1: docRef.get("local1") as! String, itemLocal2: docRef.get("local2") as! String, itemLocal3: docRef.get("local3") as! String, itemVarities: docRef.get("varieties1") as! String, itemUse: docRef.get("use") as! String, itemType: docRef.get("type") as! String, itemYear: docRef.get("year") as? Int ?? 0, itemAbv: docRef.get("abv") as? String ?? "", itemDegree: docRef.get("degree") as? String ?? "")
             
         }catch{
             print(error .localizedDescription)
