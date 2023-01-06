@@ -19,7 +19,7 @@ struct JsonToFirestoreTestView: View {
                 self.ids = await help1()
                 //await help2(ids: self.ids, jsonResult: self.jsonResult)
                 //await help3(ids: self.ids)
-                await help4()
+                //await help4()
             }
     }
 }

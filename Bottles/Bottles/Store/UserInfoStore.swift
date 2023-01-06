@@ -12,7 +12,7 @@ import FirebaseFirestore
 class UserInfoStore : ObservableObject{
     @Published var userInfo: UserInfo = UserInfo()
     let database = Firestore.firestore()
-    var userEmail: String = "dksdmssh1212@naver.com"
+    var userEmail: String = "shinn.mizzz@gmail.com"
     @MainActor
     func requestUserLikes() async{
         userInfo = UserInfo()
