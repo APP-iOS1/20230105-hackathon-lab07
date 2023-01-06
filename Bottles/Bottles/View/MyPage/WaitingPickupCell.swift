@@ -32,21 +32,26 @@ struct WaitingPickupCell: View {
                     HStack {
                         Text("Middle Bottle")
                             .font(.title3)
-                            .fontWeight(.heavy)
+                            .fontWeight(.bold)
                         Spacer()
                         Text("2023-01-05")
-                            .bold()
+                            .fontWeight(.bold)
                     }
+                    .padding(.bottom, 0.1)
+                    
                     HStack{
                         Text("로얄 살루트")
                             .font(.subheadline)
+                        
                         Spacer()
+                        
                         Text("18:00~19:00 픽업 예정")
                             .font(.subheadline)
                     }
                 }
                 .foregroundColor(.black)
                 .padding(5)
+                .padding(.horizontal, 5)
             }
         }
         .padding(30)
